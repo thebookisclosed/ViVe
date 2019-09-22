@@ -216,14 +216,17 @@ namespace Albacore.ViVeTool
                 Console.WriteLine("Examples: {0}config runtime 123456 2\n          {0}config runtime 456789 2 1 4 1 0 0", helpPrefix);
                 return;
             }
-            FeatureConfigurationSection sectionToUse = FeatureConfigurationSection.Runtime;
+            FeatureConfigurationSection sectionToUse;
             if (args[1] == "boot")
                 sectionToUse = FeatureConfigurationSection.Boot;
+            else if (args[1] == "runtime")
+                sectionToUse = FeatureConfigurationSection.Runtime;
             else
             {
-                Console.WriteLine("Invalid action, only 'add' or 'delete' are supported");
+                Console.WriteLine("Feature configuration section must be 'boot' or 'runtime'");
                 return;
             }
+
             if (!TryParseDecHexUint(args[2], out uint featureId))
             {
                 Console.WriteLine("Couldn't parse feature ID");
