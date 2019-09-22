@@ -1,8 +1,24 @@
-﻿using System;
+﻿/*
+    ViVeTool - Vibranium feature configuration tool
+    Copyright (C) 2019  @thebookisclosed
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Albacore.ViVe;
 
 namespace Albacore.ViVeTool
@@ -11,7 +27,7 @@ namespace Albacore.ViVeTool
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("ViVeTool v0.1 - Vibranium feature configuration tool\n");
+            Console.WriteLine("ViVeTool v0.1.1 - Vibranium feature configuration tool\n");
             if (args.Length < 1)
             {
                 PrintHelp();
@@ -104,13 +120,13 @@ namespace Albacore.ViVeTool
                 ProcessSetConfig(args, FeatureConfigurationAction.Delete);
             }
             #endregion
-            #region AddConfig
+            #region AddSub
             else if (args[0] == "addsub")
             {
                 ProcessSetSubs(args, false);
             }
             #endregion
-            #region DelConfig
+            #region DelSub
             else if (args[0] == "delsub")
             {
                 ProcessSetSubs(args, true);
@@ -212,7 +228,7 @@ namespace Albacore.ViVeTool
             {
                 string helpPrefix = actionToUse == FeatureConfigurationAction.Delete ? "del" : "add";
                 Console.WriteLine("Syntax:   {0}config <runtime | boot> <numeric id> <enabled state>\n          [enabled state options] [variant] [variant payload kind] [variant payload] [group]\n", helpPrefix);
-                Console.WriteLine("If an invalid section is specified, 'runtime' will be used\n\nEnabled state types: 0 = Default, 1 = Disabled, 2 = Enabled\n");
+                Console.WriteLine("Enabled state types: 0 = Default, 1 = Disabled, 2 = Enabled\n");
                 Console.WriteLine("Examples: {0}config runtime 123456 2\n          {0}config runtime 456789 2 1 4 1 0 0", helpPrefix);
                 return;
             }
