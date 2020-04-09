@@ -87,5 +87,21 @@ namespace Albacore.ViVe
         public static extern int RtlNotifyFeatureUsage(
             byte[] buffer
             );
+
+        [DllImport("ntdll.dll")]
+        public static extern int RtlSetSystemBootStatus(
+            int infoClass,
+            ref int state,
+            int stateSize,
+            IntPtr output
+            );
+
+        [DllImport("ntdll.dll")]
+        public static extern int RtlGetSystemBootStatus(
+            int infoClass,
+            ref int state,
+            int stateSize,
+            IntPtr output
+            );
     }
 }

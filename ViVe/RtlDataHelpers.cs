@@ -75,5 +75,21 @@ namespace Albacore.ViVe
             }
             return retArray;
         }
+
+        private static uint SwapBytes(uint x)
+        {
+            x = (x >> 16) | (x << 16);
+            return ((x & 0xFF00FF00) >> 8) | ((x & 0x00FF00FF) << 8);
+        }
+
+        private static uint RotateRight32(uint value, int shift)
+        {
+            return (value >> shift) | (value << (32 - shift));
+        }
+
+        public static uint GetObfuscatedFeatureId(uint featureId)
+        {
+            return RotateRight32(SwapBytes(featureId ^ 0x74161A4E) ^ 0x8FB23D4F, -1) ^ 0x833EA8FF;
+        }
     }
 }

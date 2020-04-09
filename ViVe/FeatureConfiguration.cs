@@ -34,8 +34,8 @@ namespace Albacore.ViVe
         {
             get { return _group; }
             set {
-                if (value > 15)
-                    throw new ArgumentException("Group must not be more than 15");
+                if (value > 14)
+                    throw new ArgumentException("Group must not be more than 14");
                 _group = value;
             }
         }
@@ -44,8 +44,8 @@ namespace Albacore.ViVe
             get { return _enabledState; }
             set
             {
-                if ((int)value > 3)
-                    throw new ArgumentException("EnabledState must not be more than 3");
+                if ((int)value > 2)
+                    throw new ArgumentException("EnabledState must not be more than 2");
                 _enabledState = value;
             }
         }

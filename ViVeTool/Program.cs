@@ -27,7 +27,7 @@ namespace Albacore.ViVeTool
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("ViVeTool v0.1.1 - Vibranium feature configuration tool\n");
+            Console.WriteLine("ViVeTool v0.2.0 - Vibranium feature configuration tool\n");
             if (args.Length < 1)
             {
                 PrintHelp();
@@ -167,6 +167,34 @@ namespace Albacore.ViVeTool
                     Console.WriteLine("Successfully fired the feature usage notification");
             }
             #endregion
+            #region SetBootState
+            else if (args[0] == "setbootstate")
+            {
+                int state = 1;
+                if (args.Length > 1)
+                    if (!int.TryParse(args[1], out state))
+                    {
+                        Console.WriteLine("Couldn't parse desired state");
+                        return;
+                    }
+                var result = RtlFeatureManager.SetBootFeatureConfigurationState(ref state);
+                if (result < 0)
+                    Console.WriteLine("Failed to set boot state (hr=0x{0:x8})", result);
+                else
+                    Console.WriteLine("Successfully set boot state");
+            }
+            #endregion
+            #region GetBootState
+            else if (args[0] == "getbootstate")
+            {
+                int state = 0;
+                var result = RtlFeatureManager.GetBootFeatureConfigurationState(ref state);
+                if (result < 0)
+                    Console.WriteLine("Failed to query boot state (hr=0x{0:x8})", result);
+                else
+                    Console.WriteLine("Boot state: {0}", state);
+            }
+            #endregion
         }
 
         static void ProcessSetSubs(string[] args, bool del)
@@ -199,56 +227,50 @@ namespace Albacore.ViVeTool
                 Console.WriteLine("Couldn't parse reporting target");
                 return;
             }
+            var subList = new List<FeatureUsageSubscription>() {new FeatureUsageSubscription()
+            {
+                FeatureId = featureId,
+                ReportingKind = reportingKind,
+                ReportingOptions = reportingOptions,
+                ReportingTarget = reportingTarget
+            } };
             int result;
             if (del)
-                result = RtlFeatureManager.RemoveFeatureUsageSubscriptions(new List<FeatureUsageSubscription>() {
-                    new FeatureUsageSubscription() {
-                        FeatureId = featureId,
-                        ReportingKind = reportingKind,
-                        ReportingOptions = reportingOptions,
-                        ReportingTarget = reportingTarget
-                    } });
+                result = RtlFeatureManager.RemoveLiveFeatureUsageSubscriptions(subList);
             else
-                result = RtlFeatureManager.AddFeatureUsageSubscriptions(new List<FeatureUsageSubscription>() {
-                    new FeatureUsageSubscription() {
-                        FeatureId = featureId,
-                        ReportingKind = reportingKind,
-                        ReportingOptions = reportingOptions,
-                        ReportingTarget = reportingTarget
-                    } });
+                result = RtlFeatureManager.AddLiveFeatureUsageSubscriptions(subList);
             if (result != 0)
-                Console.WriteLine("An error occurred while setting the feature usage subscription (hr=0x{0:x8})", result);
+            {
+                Console.WriteLine("An error occurred while setting a live feature usage subscription (hr=0x{0:x8})", result);
+                return;
+            }
+            if (del)
+                result = RtlFeatureManager.RemoveBootFeatureUsageSubscriptions(subList) ? 0 : -1;
+            else
+                result = RtlFeatureManager.AddBootFeatureUsageSubscriptions(subList) ? 0 : -1;
+            if (result != 0)
+                Console.WriteLine("An error occurred while setting a boot feature usage subscription");
             else
                 Console.WriteLine("Successfully set feature usage subscription");
         }
 
         static void ProcessSetConfig(string[] args, FeatureConfigurationAction actionToUse)
         {
-            if (args.Length < 4)
+            if (args.Length < 3)
             {
                 string helpPrefix = actionToUse == FeatureConfigurationAction.Delete ? "del" : "add";
-                Console.WriteLine("Syntax:   {0}config <runtime | boot> <numeric id> <enabled state>\n          [enabled state options] [variant] [variant payload kind] [variant payload] [group]\n", helpPrefix);
+                Console.WriteLine("Syntax:   {0}config <numeric id> <enabled state>\n          [enabled state options] [variant] [variant payload kind] [variant payload] [group]\n", helpPrefix);
                 Console.WriteLine("Enabled state types: 0 = Default, 1 = Disabled, 2 = Enabled\n");
-                Console.WriteLine("Examples: {0}config runtime 123456 2\n          {0}config runtime 456789 2 1 4 1 0 0", helpPrefix);
-                return;
-            }
-            FeatureConfigurationSection sectionToUse;
-            if (args[1] == "boot")
-                sectionToUse = FeatureConfigurationSection.Boot;
-            else if (args[1] == "runtime")
-                sectionToUse = FeatureConfigurationSection.Runtime;
-            else
-            {
-                Console.WriteLine("Feature configuration section must be 'boot' or 'runtime'");
+                Console.WriteLine("Examples: {0}config 23456789 2\n          {0}config 23456789 2 1 1 0 0 4", helpPrefix);
                 return;
             }
 
-            if (!TryParseDecHexUint(args[2], out uint featureId))
+            if (!TryParseDecHexUint(args[1], out uint featureId))
             {
                 Console.WriteLine("Couldn't parse feature ID");
                 return;
             }
-            if (!TryParseDecHexInt(args[3], out int enabledState))
+            if (!TryParseDecHexInt(args[2], out int enabledState))
             {
                 Console.WriteLine("Couldn't parse enabled state");
                 return;
@@ -258,32 +280,32 @@ namespace Albacore.ViVeTool
             int variantPayloadKind = 0;
             int variantPayload = 0;
             int group = 4;
-            if (args.Length > 4 && !TryParseDecHexInt(args[4], out enabledStateOptions))
+            if (args.Length > 4 && !TryParseDecHexInt(args[3], out enabledStateOptions))
             {
                 Console.WriteLine("Couldn't parse enabled state options");
                 return;
             }
-            if (args.Length > 5 && !TryParseDecHexInt(args[5], out variant))
+            if (args.Length > 5 && !TryParseDecHexInt(args[4], out variant))
             {
                 Console.WriteLine("Couldn't parse variant");
                 return;
             }
-            if (args.Length > 6 && !TryParseDecHexInt(args[6], out variantPayloadKind))
+            if (args.Length > 6 && !TryParseDecHexInt(args[5], out variantPayloadKind))
             {
                 Console.WriteLine("Couldn't parse variant payload kind");
                 return;
             }
-            if (args.Length > 7 && !TryParseDecHexInt(args[7], out variantPayload))
+            if (args.Length > 7 && !TryParseDecHexInt(args[6], out variantPayload))
             {
                 Console.WriteLine("Couldn't parse variant payload");
                 return;
             }
-            if (args.Length > 8 && !TryParseDecHexInt(args[8], out group))
+            if (args.Length > 8 && !TryParseDecHexInt(args[7], out group))
             {
                 Console.WriteLine("Couldn't parse group");
                 return;
             }
-            int result = RtlFeatureManager.SetFeatureConfigurations(new List<FeatureConfiguration>() {
+            var configs = new List<FeatureConfiguration>() {
                     new FeatureConfiguration() {
                         FeatureId = featureId,
                         EnabledState = (FeatureEnabledState)enabledState,
@@ -293,9 +315,15 @@ namespace Albacore.ViVeTool
                         VariantPayloadKind = variantPayloadKind,
                         VariantPayload = variantPayload,
                         Action = actionToUse
-                    } }, sectionToUse);
+                    } };
+            int result = RtlFeatureManager.SetLiveFeatureConfigurations(configs, FeatureConfigurationSection.Runtime);
             if (result != 0)
-                Console.WriteLine("An error occurred while setting the feature configuration (hr=0x{0:x8})", result);
+            {
+                Console.WriteLine("An error occurred while setting a live feature configuration (hr=0x{0:x8})", result);
+                return;
+            }
+            if (!RtlFeatureManager.SetBootFeatureConfigurations(configs))
+                Console.WriteLine("An error occurred while setting a boot feature configuration");
             else
                 Console.WriteLine("Successfully set feature configuration");
         }
