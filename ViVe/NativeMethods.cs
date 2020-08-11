@@ -28,7 +28,7 @@ namespace Albacore.ViVe
         [DllImport("ntdll.dll")]
         public static extern int RtlQueryAllFeatureConfigurations(
             FeatureConfigurationSection sectionType,
-            ref uint changeStamp,
+            ref ulong changeStamp,
             IntPtr buffer,
             ref int featureCount
             );
@@ -37,12 +37,12 @@ namespace Albacore.ViVe
         public static extern int RtlQueryFeatureConfiguration(
             uint featureId,
             FeatureConfigurationSection sectionType,
-            ref uint changeStamp,
+            ref ulong changeStamp,
             IntPtr buffer
             );
 
         [DllImport("ntdll.dll")]
-        public static extern uint RtlQueryFeatureConfigurationChangeStamp();
+        public static extern ulong RtlQueryFeatureConfigurationChangeStamp();
 
         [DllImport("ntdll.dll")]
         public static extern int RtlQueryFeatureUsageNotificationSubscriptions(
@@ -52,7 +52,7 @@ namespace Albacore.ViVe
 
         [DllImport("ntdll.dll")]
         public static extern int RtlSetFeatureConfigurations(
-            ref uint changeStamp,
+            ref ulong changeStamp,
             FeatureConfigurationSection sectionType,
             byte[] buffer,
             int featureCount

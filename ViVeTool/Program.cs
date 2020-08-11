@@ -27,7 +27,7 @@ namespace Albacore.ViVeTool
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("ViVeTool v0.2.0 - Vibranium feature configuration tool\n");
+            Console.WriteLine("ViVeTool v0.2.1 - Vibranium feature configuration tool\n");
             if (args.Length < 1)
             {
                 PrintHelp();

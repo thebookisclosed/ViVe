@@ -29,17 +29,17 @@ namespace Albacore.ViVe
     {
         public static List<FeatureConfiguration> QueryAllFeatureConfigurations()
         {
-            uint dummy = 0;
+            ulong dummy = 0;
             return QueryAllFeatureConfigurations(FeatureConfigurationSection.Runtime, ref dummy);
         }
 
         public static List<FeatureConfiguration> QueryAllFeatureConfigurations(FeatureConfigurationSection section)
         {
-            uint dummy = 0;
+            ulong dummy = 0;
             return QueryAllFeatureConfigurations(section, ref dummy);
         }
 
-        public static List<FeatureConfiguration> QueryAllFeatureConfigurations(FeatureConfigurationSection section, ref uint changeStamp)
+        public static List<FeatureConfiguration> QueryAllFeatureConfigurations(FeatureConfigurationSection section, ref ulong changeStamp)
         {
             int featureCount = 0;
             NativeMethods.RtlQueryAllFeatureConfigurations(section, ref changeStamp, IntPtr.Zero, ref featureCount);
@@ -82,17 +82,17 @@ namespace Albacore.ViVe
 
         public static FeatureConfiguration QueryFeatureConfiguration(uint featureId)
         {
-            uint dummy = 0;
+            ulong dummy = 0;
             return QueryFeatureConfiguration(featureId, FeatureConfigurationSection.Runtime, ref dummy);
         }
 
         public static FeatureConfiguration QueryFeatureConfiguration(uint featureId, FeatureConfigurationSection section)
         {
-            uint dummy = 0;
+            ulong dummy = 0;
             return QueryFeatureConfiguration(featureId, section, ref dummy);
         }
 
-        public static FeatureConfiguration QueryFeatureConfiguration(uint featureId, FeatureConfigurationSection section, ref uint changeStamp)
+        public static FeatureConfiguration QueryFeatureConfiguration(uint featureId, FeatureConfigurationSection section, ref ulong changeStamp)
         {
             // One feature config is 12 bytes long
             IntPtr rawBuf = Marshal.AllocHGlobal(12);
@@ -116,24 +116,24 @@ namespace Albacore.ViVe
                 VariantPayload = BitConverter.ToInt32(buf, 8) };
         }
 
-        public static uint QueryFeatureConfigurationChangeStamp()
+        public static ulong QueryFeatureConfigurationChangeStamp()
         {
             return NativeMethods.RtlQueryFeatureConfigurationChangeStamp();
         }
 
         public static int SetLiveFeatureConfigurations(List<FeatureConfiguration> configurations)
         {
-            uint dummy = 0;
+            ulong dummy = 0;
             return SetLiveFeatureConfigurations(configurations, FeatureConfigurationSection.Runtime, ref dummy);
         }
 
         public static int SetLiveFeatureConfigurations(List<FeatureConfiguration> configurations, FeatureConfigurationSection section)
         {
-            uint dummy = 0;
+            ulong dummy = 0;
             return SetLiveFeatureConfigurations(configurations, section, ref dummy);
         }
 
-        public static int SetLiveFeatureConfigurations(List<FeatureConfiguration> configurations, FeatureConfigurationSection section, ref uint changeStamp)
+        public static int SetLiveFeatureConfigurations(List<FeatureConfiguration> configurations, FeatureConfigurationSection section, ref ulong changeStamp)
         {
             return NativeMethods.RtlSetFeatureConfigurations(ref changeStamp, section, RtlDataHelpers.SerializeFeatureConfigurations(configurations), configurations.Count);
         }
