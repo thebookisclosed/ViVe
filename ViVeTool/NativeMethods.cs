@@ -1,6 +1,6 @@
 ﻿/*
-    ViVe - Vibranium feature configuration library
-    Copyright (C) 2019  @thebookisclosed
+    ViVe - Windows feature configuration library
+    Copyright (C) 2019-2022  @thebookisclosed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,12 +16,13 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Albacore.ViVe
+using System.Runtime.InteropServices;
+
+namespace Albacore.ViVeTool
 {
-    public enum FeatureConfigurationSection
+    internal class NativeMethods
     {
-        Boot = 0,
-        Runtime = 1,
-        UsageTriggers = 2
+        [DllImport("ntdll.dll")]
+        internal static extern int RtlNtStatusToDosError(int ntStatus);
     }
 }

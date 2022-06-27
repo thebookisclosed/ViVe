@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,6 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -41,16 +43,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureConfigurationAction.cs" />
-    <Compile Include="FeatureConfigurationSection.cs" />
-    <Compile Include="FeatureConfiguration.cs" />
-    <Compile Include="FeatureEnabledState.cs" />
-    <Compile Include="FeatureUsageReport.cs" />
-    <Compile Include="FeatureUsageSubscription.cs" />
-    <Compile Include="NativeMethods.cs" />
+    <Compile Include="FeaturePropertyOverflowException.cs" />
+    <Compile Include="NativeEnums.cs" />
+    <Compile Include="NativeStructs.cs" />
+    <Compile Include="NativeMethods.Ntdll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RtlDataHelpers.cs" />
-    <Compile Include="RtlFeatureManager.cs" />
+    <Compile Include="ObfuscationHelpers.cs" />
+    <Compile Include="FeatureManager.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

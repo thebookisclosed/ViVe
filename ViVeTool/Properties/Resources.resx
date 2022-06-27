@@ -1,0 +1,472 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Branding" xml:space="preserve">
+    <value>ViVeTool v0.3.0 - Windows feature configuration tool
+</value>
+  </data>
+  <data name="ChangestampDisplay" xml:space="preserve">
+    <value>Changestamp: {0}</value>
+  </data>
+  <data name="CheckingAppUpdates" xml:space="preserve">
+    <value>Checking for app updates...</value>
+  </data>
+  <data name="CheckingDictUpdates" xml:space="preserve">
+    <value>Checking for feature dictionary updates...</value>
+  </data>
+  <data name="CommandMigrationNote" xml:space="preserve">
+    <value>The '{0}' command has been moved to '{1}' as part of a syntax improvement effort.
+Arguments are now position independent and clearly labeled, ambiguous strings of numbers are no longer used.
+/? can be used to view more information about usage.</value>
+  </data>
+  <data name="DictUpdateCanceled" xml:space="preserve">
+    <value>Dictionary update canceled</value>
+  </data>
+  <data name="DictUpdateConsent" xml:space="preserve">
+    <value>Replace current version with new version?</value>
+  </data>
+  <data name="DictUpdateFinished" xml:space="preserve">
+    <value>Dictionary update finished</value>
+  </data>
+  <data name="ExportSuccess" xml:space="preserve">
+    <value>Exported {0} Runtime type and {1} Boot type feature configuration(s) to {2}</value>
+  </data>
+  <data name="FeatureDisplay_HasSubscriptions" xml:space="preserve">
+    <value>HasSubscriptions: {0}</value>
+  </data>
+  <data name="FeatureDisplay_Payload" xml:space="preserve">
+    <value>Payload         : {0:x}</value>
+  </data>
+  <data name="FeatureDisplay_PayloadKind" xml:space="preserve">
+    <value>PayloadKind     : {0} ({1})</value>
+  </data>
+  <data name="FeatureDisplay_Priority" xml:space="preserve">
+    <value>Priority        : {0} ({1})</value>
+  </data>
+  <data name="FeatureDisplay_State" xml:space="preserve">
+    <value>State           : {0} ({1})</value>
+  </data>
+  <data name="FeatureDisplay_Type" xml:space="preserve">
+    <value>Type            : {0} ({1})</value>
+  </data>
+  <data name="FeatureDisplay_Variant" xml:space="preserve">
+    <value>Variant         : {0}</value>
+  </data>
+  <data name="FeatureType_Experiment" xml:space="preserve">
+    <value>Experiment</value>
+  </data>
+  <data name="FeatureType_Override" xml:space="preserve">
+    <value>Override</value>
+  </data>
+  <data name="FixLKGNotNeeded" xml:space="preserve">
+    <value>'Last Known Good' rollback system data corruption was not found</value>
+  </data>
+  <data name="FixLKGPerformed" xml:space="preserve">
+    <value>'Last Known Good' rollback system data has been fixed successfully</value>
+  </data>
+  <data name="FullResetCanceled" xml:space="preserve">
+    <value>Full reset canceled</value>
+  </data>
+  <data name="FullResetPrompt" xml:space="preserve">
+    <value>Are you sure you want to perform a full reset?</value>
+  </data>
+  <data name="Help_Commands" xml:space="preserve">
+    <value>Available commands:
+  /query		Lists existing feature configuration(s)
+  /enable		Enables a feature
+  /disable		Disables a feature
+  /reset		Removes custom configurations for a specific feature
+  /fullreset		Removes all custom feature configurations
+  /changestamp		Prints the feature store change counter (changestamp)*
+  /querysubs		Lists existing feature usage subscriptions*
+  /addsub		Adds a feature usage subscription
+  /delsub		Removes a feature usage subscription
+  /notifyusage		Fires a feature usage notification
+  /export		Exports custom feature configurations
+  /import		Imports custom feature configurations
+  /lkgstatus		Prints the current 'Last Known Good' rollback system status
+  /fixlkg		Fixes 'Last Known Good' rollback system corruption
+  /appupdate		Checks for a new version of ViVeTool*
+  /dictupdate		Checks for a new version of the feature name dictionary*
+
+Commands can be used along with /? to view more information about usage
+*Does not apply to commands marked with an asterisk</value>
+  </data>
+  <data name="Help_Export" xml:space="preserve">
+    <value>Syntax:
+  /export /filename:&lt;path to new file&gt; [/store:&lt;both | runtime | boot&gt;]
+
+Exports all currently loaded feature configurations to a file. By default both stores are exported.
+
+Examples:
+  /export /filename:features.bin</value>
+  </data>
+  <data name="Help_FixLKG" xml:space="preserve">
+    <value>Syntax:
+  /fixlkg
+
+Attempts to fix corrupted 'Last Known Good' rollback system data. Windows system components can occassionally
+invalidate this data due to a programming oversight.</value>
+  </data>
+  <data name="Help_FullReset" xml:space="preserve">
+    <value>Syntax:
+  /fullreset [/store:&lt;both | runtime | boot&gt;]
+
+This command removes all custom feature configuration overrides, effectively reverting
+feature store contents to their clean install state. Both stores are targeted by default.
+Use with caution.
+
+ImageDefault (0) and ImageOverride (15) priority configurations are unaffected by this command.</value>
+  </data>
+  <data name="Help_Import" xml:space="preserve">
+    <value>Syntax:
+  /import /filename:&lt;path to file&gt; [/store:&lt;both | runtime | boot&gt;] [/replace]
+
+Imports all feature configurations stored in a file into your system. By default both stores will be imported to.
+
+Specifying /replace performs a full reset before importing data.
+
+ImageDefault (0) and ImageOverride (15) priority configurations are unaffected by this command.
+
+Examples:
+  /import /filename:features.bin
+  /import /filename:features.bin /store:boot /replace</value>
+  </data>
+  <data name="Help_LKGStatus" xml:space="preserve">
+    <value>Syntax:
+  /lkgstatus
+
+Queries the 'Last Known Good' (LKG) rollback system status. The LKG blob is a snapshot of feature
+configurations known to cause no critical system failures.
+
+Status descriptions:
+  - BootPending		Feature configurations have changed since booting up, a reboot is required
+			to confirm that they don't cause boot-time failures
+
+  - LKGPending		The system was able to boot successfully after a feature confguration change,
+			the current state will shortly become the new LKG blob
+
+  - RollbackPending	Recent feature configuration changes were found to cause issues, the current
+			state will soon be replaced by the LKG blob
+
+  - Committed		No feature configuration changes were made since booting up, the LKG blob
+			matches the current configuration</value>
+  </data>
+  <data name="Help_NotifyUsage" xml:space="preserve">
+    <value>Syntax:
+  /notifyusage {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
+  /reportingkind:&lt;0-65535&gt; /reportingoptions:&lt;0-65535&gt;
+
+Fires a feature usage notification. If a subscription with matching Kind &amp; Options conditions
+is found, the Target WNF state ID associated with it receives usage info.
+
+Features can be specified using both their IDs and names, mixing and matching is allowed.
+
+Examples:
+  /notifyusage /id:12345678 /reportingkind:4 /reportingoptions:1</value>
+  </data>
+  <data name="Help_Query" xml:space="preserve">
+    <value>Syntax:
+  /query [/store:&lt;runtime | boot&gt;] [/id:&lt;comma delimited feature IDs&gt;]
+  [/name:&lt;comma delimited feature names&gt;]
+
+If no store is specified, the Runtime store will be queried by default.
+You can specify feature IDs or names to filter the query results, in this case only
+the override with the highest priority will be displayed.
+
+Examples:
+  /query
+  /query /store:boot /id:12345678
+  /query /store:runtime /name:TIFE,STTest</value>
+  </data>
+  <data name="Help_Reset" xml:space="preserve">
+    <value>Syntax:
+  /reset {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
+  [/priority:&lt;enrollment | service | user | userpolicy | test&gt;] [/store:&lt;both | runtime | boot&gt;]
+
+Features can be specified using both their IDs and names, mixing and matching is allowed.
+
+By default the features you've chosen will have their configuration overrides erased from
+all priorities and both stores. Specifying a priority will limit the scope of the reset.
+
+ImageDefault (0) and ImageOverride (15) priority configurations are unaffected by this command.
+
+Examples:
+  /reset /id:12345678
+  /reset /name:TIFE,STTest
+  /reset /name:SmartClipboardUX /id:33000420 /priority:user</value>
+  </data>
+  <data name="Help_Set" xml:space="preserve">
+    <value>Syntax:
+  {0} {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}} [/variant:&lt;0-63&gt;]
+  [/variantpayloadkind:&lt;none | resident | external&gt;] [/variantpayload:&lt;0-4294967295&gt;] [/experiment]
+  [/priority:&lt;enrollment | service | user | userpolicy | test&gt;] [/store:&lt;both | runtime | boot&gt;]
+
+The parameters in square brackets don't need to be specified and will use these defaults:
+  Variant           : 0
+  VariantPayloadKind: None
+  VariantPayload    : 0
+  Experiment        : false
+  Priority          : Service
+  Store             : Both
+
+Features can be specified using both their IDs and names, mixing and matching is allowed.
+
+When an override is marked as an Experiment it becomes eligible for deletion by Windows's automatic
+A/B feature delivery mechanism. Do NOT use this flag if you want overrides to persist.
+
+Writing to the Boot store is necessary for features to persist across reboots. Changes to this store become
+effective the next time you reboot. The Runtime store can be used to make instantenous changes, however not
+all features support this, meaning a reboot may be required to apply changes. Use both for best results.
+
+Examples:
+  {0} /id:12345678
+  {0} /name:TIFE,STTest /variant:1
+  {0} /name:SmartClipboardUX /id:33000420 /experiment /priority:user /store:boot</value>
+  </data>
+  <data name="Help_SetSubs" xml:space="preserve">
+    <value>Syntax:
+  {0} {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
+  /reportingkind:&lt;0-65535&gt; /reportingtarget:&lt;wnf state id&gt;{1}
+
+{2}
+
+Features can be specified using both their IDs and names, mixing and matching is allowed.
+
+Examples:
+  {0} /id:12345678 /reportingkind:4 /reportingtarget:0d83063ea3bdf875</value>
+  </data>
+  <data name="Help_SetSubs_Add" xml:space="preserve">
+    <value>Creates a feature usage subscription. When the conditions specified by the Kind &amp; Options
+parameters are met, the Target WNF state ID receives usage info.</value>
+  </data>
+  <data name="Help_SetSubs_Delete" xml:space="preserve">
+    <value>Deletes a feature usage subscription.</value>
+  </data>
+  <data name="ImportBreakdown" xml:space="preserve">
+    <value>File contains {0} Runtime type and {1} Boot type applicable feature configuration(s)</value>
+  </data>
+  <data name="ImportProcessing" xml:space="preserve">
+    <value>Importing {0} feature configuration(s) into the {1} store...</value>
+  </data>
+  <data name="IncompatibleBuild" xml:space="preserve">
+    <value>Windows 10 build 18963 or newer is required for this program to function
+Your current build: {0}</value>
+  </data>
+  <data name="InvalidEnumSpec" xml:space="preserve">
+    <value>'{0}' is not a valid {1} specification</value>
+  </data>
+  <data name="InvalidEnumSpecInScenario" xml:space="preserve">
+    <value>'{0}' is not a valid {1} specification in this scenario</value>
+  </data>
+  <data name="LKGQueryFailed" xml:space="preserve">
+    <value>An error occurred while querying the 'Last Known Good' rollback system status ({0})</value>
+  </data>
+  <data name="LKGStatusDisplay" xml:space="preserve">
+    <value>LKG status: {0}</value>
+  </data>
+  <data name="LKGUpdateFailed" xml:space="preserve">
+    <value>An error occurred while setting the 'Last Known Good' rollback system status ({0})
+Changes were made but their persistence cannot be guaranteed (Current status: {1})</value>
+  </data>
+  <data name="NewAppUpdateDisplay" xml:space="preserve">
+    <value>Found release: {0} (published on {1:d})
+
+Release notes:
+{2}
+
+Download at: {3}</value>
+  </data>
+  <data name="NewDictUpdateDisplay" xml:space="preserve">
+    <value>Newer dictionary found (revision {0})</value>
+  </data>
+  <data name="NoFeaturesSpecified" xml:space="preserve">
+    <value>No features were specified</value>
+  </data>
+  <data name="NoFileNameSpecified" xml:space="preserve">
+    <value>No file name was specified</value>
+  </data>
+  <data name="NoNewerVersionFound" xml:space="preserve">
+    <value>You're using the latest version</value>
+  </data>
+  <data name="NoReportingTargetSpecified" xml:space="preserve">
+    <value>No Reporting Target was specified</value>
+  </data>
+  <data name="NotifyUsageFailed" xml:space="preserve">
+    <value>An error occurred while firing a usage notification for feature ID {0} ({1})</value>
+  </data>
+  <data name="NotifyUsageSuccess" xml:space="preserve">
+    <value>Successfully fired usage notification for feature ID {0}</value>
+  </data>
+  <data name="QueryFailed" xml:space="preserve">
+    <value>Failed to query feature configurations</value>
+  </data>
+  <data name="QuerySubsFailed" xml:space="preserve">
+    <value>Failed to query feature usage subscriptions</value>
+  </data>
+  <data name="RebootRecommended" xml:space="preserve">
+    <value>A reboot is recommended for all changes to take effect</value>
+  </data>
+  <data name="ResetBootFailed" xml:space="preserve">
+    <value>An error occurred while resetting feature configurations in the Boot store ({0}), configurations will return after reboot</value>
+  </data>
+  <data name="ResetRuntimeFailed" xml:space="preserve">
+    <value>An error occurred while resetting feature configurations in the Runtime store ({0})</value>
+  </data>
+  <data name="ResetSuccess" xml:space="preserve">
+    <value>Successfully reset feature configuration(s)</value>
+  </data>
+  <data name="SetBootFailed" xml:space="preserve">
+    <value>An error occurred while setting feature configurations in the Boot store ({0}), configurations will revert after reboot</value>
+  </data>
+  <data name="SetRuntimeFailed" xml:space="preserve">
+    <value>An error occurred while setting feature configurations in the Runtime store ({0})</value>
+  </data>
+  <data name="SetSubsBootFailed" xml:space="preserve">
+    <value>An error occurred while setting feature usage subscriptions in the Boot store ({1}), subscriptions will revert after reboot</value>
+  </data>
+  <data name="SetSubsRuntimeFailed" xml:space="preserve">
+    <value>An error occurred while setting feature usage subscriptions in the Runtime store ({0})</value>
+  </data>
+  <data name="SetSubsSuccess" xml:space="preserve">
+    <value>Successfully set feature usage subscription(s)</value>
+  </data>
+  <data name="SetSuccess" xml:space="preserve">
+    <value>Successfully set feature configuration(s)</value>
+  </data>
+  <data name="SingleQueryFailed" xml:space="preserve">
+    <value>No configuration for feature ID {0} was found in the {1} store</value>
+  </data>
+  <data name="SubscriptionDisplay_ReportingKind" xml:space="preserve">
+    <value>ReportingKind   : {0}</value>
+  </data>
+  <data name="SubscriptionDisplay_ReportingOptions" xml:space="preserve">
+    <value>ReportingOptions: {0}</value>
+  </data>
+  <data name="SubscriptionDisplay_ReportingTarget" xml:space="preserve">
+    <value>ReportingTarget : {0:x16}</value>
+  </data>
+  <data name="UnrecognizedCommand" xml:space="preserve">
+    <value>Unrecognized command: {0}</value>
+  </data>
+  <data name="UnrecognizedParameter" xml:space="preserve">
+    <value>Unrecognized parameter: {0}
+</value>
+  </data>
+</root>

@@ -1,6 +1,6 @@
 ﻿/*
-    ViVe - Vibranium feature configuration library
-    Copyright (C) 2019  @thebookisclosed
+    ViVe - Windows feature configuration library
+    Copyright (C) 2019-2022  @thebookisclosed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -16,12 +16,15 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace Albacore.ViVe
+using System;
+
+namespace Albacore.ViVe.Exceptions
 {
-    public enum FeatureEnabledState
+    public class FeaturePropertyOverflowException : Exception
     {
-        Default = 0,
-        Disabled = 1,
-        Enabled = 2
+        public FeaturePropertyOverflowException(string propertyName, int maximumValue)
+        : base($"{propertyName} must not be higher than {maximumValue}.")
+        {
+        }
     }
 }
