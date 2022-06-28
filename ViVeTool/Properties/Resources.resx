@@ -117,8 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BootStoreRebootTip" xml:space="preserve">
+    <value>Boot store changes require a reboot to fully take effect, please do so if a configuration appears to be missing</value>
+  </data>
   <data name="Branding" xml:space="preserve">
-    <value>ViVeTool v0.3.0 - Windows feature configuration tool
+    <value>ViVeTool v0.3.1 - Windows feature configuration tool
 </value>
   </data>
   <data name="ChangestampDisplay" xml:space="preserve">
@@ -289,6 +292,10 @@ Examples:
 If no store is specified, the Runtime store will be queried by default.
 You can specify feature IDs or names to filter the query results, in this case only
 the override with the highest priority will be displayed.
+
+Boot store queries reflect the state on system startup, if you've made any changes
+to it since, a reboot is required for them to show up in the output. This is intended
+as it reflects what the Windows API sees when querying particular feature stores.
 
 Examples:
   /query

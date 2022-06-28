@@ -65,15 +65,15 @@ namespace Albacore.ViVeTool
                     HandleQuery();
                     break;
                 case "/enable":
-                    ArgumentBlock.Initialize(args, ArgumentBlockFlags.Identifiers | ArgumentBlockFlags.FeatureConfigurationProperties | ArgumentBlockFlags.AllowBothStoresArgument);
+                    ArgumentBlock.Initialize(args, ArgumentBlockFlags.Store | ArgumentBlockFlags.Identifiers | ArgumentBlockFlags.FeatureConfigurationProperties | ArgumentBlockFlags.AllowBothStoresArgument);
                     HandleSet(RTL_FEATURE_ENABLED_STATE.Enabled);
                     break;
                 case "/disable":
-                    ArgumentBlock.Initialize(args, ArgumentBlockFlags.Identifiers | ArgumentBlockFlags.FeatureConfigurationProperties | ArgumentBlockFlags.AllowBothStoresArgument);
+                    ArgumentBlock.Initialize(args, ArgumentBlockFlags.Store | ArgumentBlockFlags.Identifiers | ArgumentBlockFlags.FeatureConfigurationProperties | ArgumentBlockFlags.AllowBothStoresArgument);
                     HandleSet(RTL_FEATURE_ENABLED_STATE.Disabled);
                     break;
                 case "/reset":
-                    ArgumentBlock.Initialize(args, ArgumentBlockFlags.Identifiers | ArgumentBlockFlags.Priority | ArgumentBlockFlags.AllowBothStoresArgument);
+                    ArgumentBlock.Initialize(args, ArgumentBlockFlags.Store | ArgumentBlockFlags.Identifiers | ArgumentBlockFlags.Priority | ArgumentBlockFlags.AllowBothStoresArgument);
                     HandleReset();
                     break;
                 case "/fullreset":
@@ -203,7 +203,11 @@ namespace Albacore.ViVeTool
                     PrintFeatureConfig(config.Value, name);
                 }
                 else
-                    ConsoleEx.WriteErrorLine(Properties.Resources.SingleQueryFailed, id, ArgumentBlock.Store);
+                {
+                    ConsoleEx.WriteErrorLine(Properties.Resources.SingleQueryFailed, id, storeToUse);
+                    if (storeToUse == RTL_FEATURE_CONFIGURATION_TYPE.Boot)
+                        ConsoleEx.WriteWarnLine(Properties.Resources.BootStoreRebootTip);
+                }
             }
         }
 
