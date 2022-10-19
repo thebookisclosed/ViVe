@@ -52,13 +52,13 @@ namespace Albacore.ViVeTool
 
         internal static bool IsDictOutdated(string sha)
         {
-            return sha != HashUTF8TextFile(FeatureNaming.DictFileName);
+            return sha != HashUTF8TextFile(FeatureNaming.DictFilePath);
         }
 
         internal static void ReplaceDict(string url)
         {
             EnsureWebClient();
-            UcWebClient.DownloadFile(url, FeatureNaming.DictFileName);
+            UcWebClient.DownloadFile(url, FeatureNaming.DictFilePath);
         }
 
         private static void EnsureWebClient()

@@ -120,6 +120,9 @@ namespace Albacore.ViVeTool
                     ArgumentBlock.Initialize(args, 0);
                     HandleFixLKG();
                     break;
+                case "/fixpriority":
+                    HandleFixPriority();
+                    break;
                 case "/appupdate":
                     HandleAppUpdate();
                     break;
@@ -183,7 +186,8 @@ namespace Albacore.ViVeTool
                     foreach (var config in retrievedConfigs)
                     {
                         string name = null;
-                        try { name = namesAll[config.FeatureId]; } catch { }
+                        if (namesAll != null)
+                            try { name = namesAll[config.FeatureId]; } catch { }
                         PrintFeatureConfig(config, name);
                     }
                 }
@@ -199,7 +203,8 @@ namespace Albacore.ViVeTool
                 if (config != null)
                 {
                     string name = null;
-                    try { name = namesSpecific[id]; } catch { }
+                    if (namesSpecific != null)
+                        try { name = namesSpecific[id]; } catch { }
                     PrintFeatureConfig(config.Value, name);
                 }
                 else
@@ -234,7 +239,7 @@ namespace Albacore.ViVeTool
                     FeatureId = ArgumentBlock.IdList[i],
                     EnabledState = state,
                     EnabledStateOptions = fcp.EnabledStateOptions,
-                    Priority = fcp.Priority ?? RTL_FEATURE_CONFIGURATION_PRIORITY.Service,
+                    Priority = fcp.Priority ?? RTL_FEATURE_CONFIGURATION_PRIORITY.User,
                     Variant = fcp.Variant,
                     VariantPayloadKind = fcp.VariantPayloadKind,
                     VariantPayload = fcp.VariantPayload,
@@ -315,7 +320,8 @@ namespace Albacore.ViVeTool
                 foreach (var sub in retrievedSubs)
                 {
                     string name = null;
-                    try { name = names[sub.FeatureId]; } catch { }
+                    if (names != null)
+                        try { name = names[sub.FeatureId]; } catch { }
                     PrintSubscription(sub, name);
                 }
             }
@@ -533,6 +539,14 @@ namespace Albacore.ViVeTool
                 Console.WriteLine(Properties.Resources.FixLKGNotNeeded);
         }
 
+        static void HandleFixPriority()
+        {
+            var success = FixPriorityInternal(RTL_FEATURE_CONFIGURATION_TYPE.Runtime);
+            if (!success)
+                return;
+            FixPriorityInternal(RTL_FEATURE_CONFIGURATION_TYPE.Boot);
+        }
+
         static void HandleAppUpdate()
         {
             Console.WriteLine(Properties.Resources.CheckingAppUpdates);
@@ -605,7 +619,7 @@ namespace Albacore.ViVeTool
             }
         }
 
-        static void FinalizeSet(RTL_FEATURE_CONFIGURATION_UPDATE[] updates, bool isReset)
+        static bool FinalizeSet(RTL_FEATURE_CONFIGURATION_UPDATE[] updates, bool isReset)
         {
             var useBothStores = ArgumentBlock.ShouldUseBothStores;
             if (useBothStores || ArgumentBlock.Store == FeatureConfigurationTypeEx.Runtime)
@@ -615,7 +629,7 @@ namespace Albacore.ViVeTool
                 {
                     ConsoleEx.WriteErrorLine(isReset ? Properties.Resources.ResetRuntimeFailed : Properties.Resources.SetRuntimeFailed,
                         GetHumanErrorDescription(result));
-                    return;
+                    return false;
                 }
             }
             if (useBothStores || ArgumentBlock.Store == FeatureConfigurationTypeEx.Boot)
@@ -625,13 +639,14 @@ namespace Albacore.ViVeTool
                 {
                     ConsoleEx.WriteErrorLine(isReset ? Properties.Resources.ResetBootFailed : Properties.Resources.SetBootFailed,
                         GetHumanErrorDescription(result));
-                    return;
+                    return false;
                 }
 
                 UpdateLKGStatus(BSD_FEATURE_CONFIGURATION_STATE.BootPending);
             }
 
             Console.WriteLine(isReset ? Properties.Resources.ResetSuccess : Properties.Resources.SetSuccess);
+            return true;
         }
 
         static void UpdateLKGStatus(BSD_FEATURE_CONFIGURATION_STATE newStatus)
@@ -708,6 +723,53 @@ namespace Albacore.ViVeTool
             return updates;
         }
 
+        static bool FixPriorityInternal(RTL_FEATURE_CONFIGURATION_TYPE configurationType)
+        {
+            Console.WriteLine(Properties.Resources.FixPriorityProcessing, configurationType);
+            var features = FeatureManager.QueryAllFeatureConfigurations(configurationType);
+            var fixUpdates = MakePriorityFixUpdates(features);
+            if (fixUpdates == null)
+            {
+                Console.WriteLine(Properties.Resources.FixPriorityNotNeeded);
+                return true;
+            }
+            ArgumentBlock.Store = (FeatureConfigurationTypeEx)configurationType;
+            var success = FinalizeSet(fixUpdates, false);
+            if (configurationType == RTL_FEATURE_CONFIGURATION_TYPE.Boot)
+                Console.WriteLine(Properties.Resources.RebootRecommended);
+            return success;
+        }
+
+        static RTL_FEATURE_CONFIGURATION_UPDATE[] MakePriorityFixUpdates(RTL_FEATURE_CONFIGURATION[] configurations)
+        {
+            var configsToFix = configurations.Where(x => x.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.Service && !x.IsWexpConfiguration);
+            if (!configsToFix.Any())
+                return null;
+            var priorityFixUpdates = new RTL_FEATURE_CONFIGURATION_UPDATE[configsToFix.Count() * 2];
+            var updatesCreated = 0;
+            foreach (var cfg in configsToFix)
+            {
+                priorityFixUpdates[updatesCreated] = new RTL_FEATURE_CONFIGURATION_UPDATE()
+                {
+                    FeatureId = cfg.FeatureId,
+                    Priority = cfg.Priority,
+                    Operation = RTL_FEATURE_CONFIGURATION_OPERATION.ResetState
+                };
+                priorityFixUpdates[updatesCreated + 1] = new RTL_FEATURE_CONFIGURATION_UPDATE()
+                {
+                    FeatureId = cfg.FeatureId,
+                    Priority = RTL_FEATURE_CONFIGURATION_PRIORITY.User,
+                    EnabledState = cfg.EnabledState,
+                    Variant = cfg.Variant,
+                    VariantPayloadKind = cfg.VariantPayloadKind,
+                    VariantPayload = cfg.VariantPayload,
+                    Operation = RTL_FEATURE_CONFIGURATION_OPERATION.FeatureState | RTL_FEATURE_CONFIGURATION_OPERATION.VariantState
+                };
+                updatesCreated += 2;
+            }
+            return priorityFixUpdates;
+        }
+
         static void CommandMigrationInfoTip(string oldCommand, string newCommand)
         {
             ConsoleEx.WriteWarnLine(Properties.Resources.CommandMigrationNote, oldCommand, newCommand);
@@ -735,7 +797,10 @@ namespace Albacore.ViVeTool
                 Console.Write(" ({0})", name);
             Console.WriteLine();
             Console.ForegroundColor = defaultFg;
-            Console.WriteLine(Properties.Resources.FeatureDisplay_Priority, config.Priority, (uint)config.Priority);
+            if (Enum.IsDefined(typeof(RTL_FEATURE_CONFIGURATION_PRIORITY), config.Priority))
+                Console.WriteLine(Properties.Resources.FeatureDisplay_Priority + " ({1})", config.Priority, (uint)config.Priority);
+            else
+                Console.WriteLine(Properties.Resources.FeatureDisplay_Priority, config.Priority, (uint)config.Priority);
             Console.WriteLine(Properties.Resources.FeatureDisplay_State, config.EnabledState, (uint)config.EnabledState);
             Console.WriteLine(Properties.Resources.FeatureDisplay_Type,
                 config.IsWexpConfiguration ? Properties.Resources.FeatureType_Experiment : Properties.Resources.FeatureType_Override,

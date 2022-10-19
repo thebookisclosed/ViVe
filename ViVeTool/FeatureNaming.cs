@@ -25,13 +25,14 @@ namespace Albacore.ViVeTool
     internal class FeatureNaming
     {
         internal const string DictFileName = "FeatureDictionary.pfs";
+        internal static string DictFilePath = Path.Combine(Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location), DictFileName);
         internal static List<uint> FindIdsForNames(IEnumerable<string> featureNames)
         {
-            if (!File.Exists(DictFileName))
+            if (!File.Exists(DictFilePath))
                 return null;
             var result = new List<uint>();
             var namesCommas = featureNames.Select(x => x.ToLowerInvariant() + ",").ToList();
-            using (StreamReader reader = new StreamReader(File.OpenRead(DictFileName)))
+            using (StreamReader reader = new StreamReader(File.OpenRead(DictFilePath)))
             {
                 while (!reader.EndOfStream)
                 {
@@ -55,10 +56,10 @@ namespace Albacore.ViVeTool
         internal static Dictionary<uint, string> FindNamesForFeatures(IEnumerable<uint> featureIDs)
         {
             var result = new Dictionary<uint, string>();
-            if (!File.Exists(DictFileName))
+            if (!File.Exists(DictFilePath))
                 return null;
             var idsCommas = featureIDs.Select(x => "," + x.ToString()).ToList();
-            using (StreamReader reader = new StreamReader(File.OpenRead(DictFileName)))
+            using (StreamReader reader = new StreamReader(File.OpenRead(DictFilePath)))
             {
                 while (!reader.EndOfStream)
                 {

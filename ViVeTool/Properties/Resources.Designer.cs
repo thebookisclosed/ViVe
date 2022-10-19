@@ -70,7 +70,7 @@ namespace Albacore.ViVeTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ViVeTool v0.3.1 - Windows feature configuration tool
+        ///   Looks up a localized string similar to ViVeTool v0.3.2 - Windows feature configuration tool
         ///.
         /// </summary>
         internal static string Branding {
@@ -181,7 +181,7 @@ namespace Albacore.ViVeTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Priority        : {0} ({1}).
+        ///   Looks up a localized string similar to Priority        : {0}.
         /// </summary>
         internal static string FeatureDisplay_Priority {
             get {
@@ -249,6 +249,24 @@ namespace Albacore.ViVeTool.Properties {
         internal static string FixLKGPerformed {
             get {
                 return ResourceManager.GetString("FixLKGPerformed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No configurations in this store need to be moved.
+        /// </summary>
+        internal static string FixPriorityNotNeeded {
+            get {
+                return ResourceManager.GetString("FixPriorityNotNeeded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Moving Override type {0} configurations from Service to User priority....
+        /// </summary>
+        internal static string FixPriorityProcessing {
+            get {
+                return ResourceManager.GetString("FixPriorityProcessing", resourceCulture);
             }
         }
         
@@ -413,14 +431,14 @@ namespace Albacore.ViVeTool.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Syntax:
         ///  /reset {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
-        ///  [/priority:&lt;enrollment | service | user | userpolicy | test&gt;] [/store:&lt;both | runtime | boot&gt;]
+        ///  [/priority:{{&lt;enrollment | service | user | userpolicy | test&gt; | &lt;1-14&gt;}}] [/store:&lt;both | runtime | boot&gt;]
         ///
         ///Features can be specified using both their IDs and names, mixing and matching is allowed.
         ///
         ///By default the features you&apos;ve chosen will have their configuration overrides erased from
         ///all priorities and both stores. Specifying a priority will limit the scope of the reset.
         ///
-        ///ImageDefault (0) and ImageOverride (15) [rest of string was truncated]&quot;;.
+        ///ImageDefault (0) and Image [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Help_Reset {
             get {
@@ -432,14 +450,13 @@ namespace Albacore.ViVeTool.Properties {
         ///   Looks up a localized string similar to Syntax:
         ///  {0} {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}} [/variant:&lt;0-63&gt;]
         ///  [/variantpayloadkind:&lt;none | resident | external&gt;] [/variantpayload:&lt;0-4294967295&gt;] [/experiment]
-        ///  [/priority:&lt;enrollment | service | user | userpolicy | test&gt;] [/store:&lt;both | runtime | boot&gt;]
+        ///  [/priority:{{&lt;enrollment | service | user | userpolicy | test&gt; | &lt;1-14&gt;}}] [/store:&lt;both | runtime | boot&gt;]
         ///
         ///The parameters in square brackets don&apos;t need to be specified and will use these defaults:
         ///  Variant           : 0
         ///  VariantPayloadKind: None
         ///  VariantPayload    : 0
-        ///  Experiment        : false
-        ///  [rest of string was truncated]&quot;;.
+        ///  Experiment      [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Help_Set {
             get {

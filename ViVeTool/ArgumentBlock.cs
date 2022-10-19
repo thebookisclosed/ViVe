@@ -65,11 +65,10 @@ namespace Albacore.ViVeTool
             for (int i = 1; i < args.Length && flags != 0; i++)
             {
                 var firstSc = args[i].IndexOf(':');
-                //if (firstSc == -1) continue;
                 var hasValue = firstSc != -1;
                 var lower = args[i].ToLowerInvariant();
                 var key = hasValue ? lower.Substring(0, firstSc) : lower;
-                var value = hasValue ? args[i].Substring(firstSc + 1) : null;
+                var value = hasValue ? args[i].Substring(firstSc + 1) : string.Empty;
                 if (flags.HasFlag(ArgumentBlockFlags.Store) && key == "/store")
                 {
                     if (Enum.TryParse(value, true, out FeatureConfigurationTypeEx parsedStore))
@@ -142,7 +141,8 @@ namespace Albacore.ViVeTool
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.Priority) && key == "/priority")
                 {
-                    if (!Enum.TryParse(value, true, out RTL_FEATURE_CONFIGURATION_PRIORITY parsedPriority))
+                    if (!Enum.TryParse(value, true, out RTL_FEATURE_CONFIGURATION_PRIORITY parsedPriority) ||
+                        ((int)parsedPriority < 1 || (int)parsedPriority > 14))
                     {
                         ConsoleEx.WriteErrorLine(Properties.Resources.InvalidEnumSpec, value, "Priority");
                         HelpMode = true;

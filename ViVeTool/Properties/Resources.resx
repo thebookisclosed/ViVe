@@ -121,7 +121,7 @@
     <value>Boot store changes require a reboot to fully take effect, please do so if a configuration appears to be missing</value>
   </data>
   <data name="Branding" xml:space="preserve">
-    <value>ViVeTool v0.3.1 - Windows feature configuration tool
+    <value>ViVeTool v0.3.2 - Windows feature configuration tool
 </value>
   </data>
   <data name="ChangestampDisplay" xml:space="preserve">
@@ -160,7 +160,7 @@ Arguments are now position independent and clearly labeled, ambiguous strings of
     <value>PayloadKind     : {0} ({1})</value>
   </data>
   <data name="FeatureDisplay_Priority" xml:space="preserve">
-    <value>Priority        : {0} ({1})</value>
+    <value>Priority        : {0}</value>
   </data>
   <data name="FeatureDisplay_State" xml:space="preserve">
     <value>State           : {0} ({1})</value>
@@ -182,6 +182,12 @@ Arguments are now position independent and clearly labeled, ambiguous strings of
   </data>
   <data name="FixLKGPerformed" xml:space="preserve">
     <value>'Last Known Good' rollback system data has been fixed successfully</value>
+  </data>
+  <data name="FixPriorityNotNeeded" xml:space="preserve">
+    <value>No configurations in this store need to be moved</value>
+  </data>
+  <data name="FixPriorityProcessing" xml:space="preserve">
+    <value>Moving Override type {0} configurations from Service to User priority...</value>
   </data>
   <data name="FullResetCanceled" xml:space="preserve">
     <value>Full reset canceled</value>
@@ -205,6 +211,7 @@ Arguments are now position independent and clearly labeled, ambiguous strings of
   /import		Imports custom feature configurations
   /lkgstatus		Prints the current 'Last Known Good' rollback system status
   /fixlkg		Fixes 'Last Known Good' rollback system corruption
+  /fixpriority		Moves Override type configurations from Service to User priority*
   /appupdate		Checks for a new version of ViVeTool*
   /dictupdate		Checks for a new version of the feature name dictionary*
 
@@ -305,7 +312,7 @@ Examples:
   <data name="Help_Reset" xml:space="preserve">
     <value>Syntax:
   /reset {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
-  [/priority:&lt;enrollment | service | user | userpolicy | test&gt;] [/store:&lt;both | runtime | boot&gt;]
+  [/priority:{{&lt;enrollment | service | user | userpolicy | test&gt; | &lt;1-14&gt;}}] [/store:&lt;both | runtime | boot&gt;]
 
 Features can be specified using both their IDs and names, mixing and matching is allowed.
 
@@ -323,20 +330,21 @@ Examples:
     <value>Syntax:
   {0} {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}} [/variant:&lt;0-63&gt;]
   [/variantpayloadkind:&lt;none | resident | external&gt;] [/variantpayload:&lt;0-4294967295&gt;] [/experiment]
-  [/priority:&lt;enrollment | service | user | userpolicy | test&gt;] [/store:&lt;both | runtime | boot&gt;]
+  [/priority:{{&lt;enrollment | service | user | userpolicy | test&gt; | &lt;1-14&gt;}}] [/store:&lt;both | runtime | boot&gt;]
 
 The parameters in square brackets don't need to be specified and will use these defaults:
   Variant           : 0
   VariantPayloadKind: None
   VariantPayload    : 0
   Experiment        : false
-  Priority          : Service
+  Priority          : User
   Store             : Both
 
 Features can be specified using both their IDs and names, mixing and matching is allowed.
 
-When an override is marked as an Experiment it becomes eligible for deletion by Windows's automatic
-A/B feature delivery mechanism. Do NOT use this flag if you want overrides to persist.
+Service priority overrides are managed by Windows's automated A/B feature delivery mechanism. Experiment
+type overrides with this priority may get deleted without notice. Creating non-Experiment overrides with this
+priority may negatively impact automated A/B feature delivery. Using the Service priority is not recommended.
 
 Writing to the Boot store is necessary for features to persist across reboots. Changes to this store become
 effective the next time you reboot. The Runtime store can be used to make instantenous changes, however not
