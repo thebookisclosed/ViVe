@@ -1,6 +1,6 @@
 ﻿/*
     ViVe - Windows feature configuration library
-    Copyright (C) 2019-2022  @thebookisclosed
+    Copyright (C) 2019-2023  @thebookisclosed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -26,7 +26,7 @@ namespace Albacore.ViVeTool
     {
         internal static FeatureConfigurationTypeEx? Store;
         internal static List<uint> IdList;
-        internal static FeatureConigurationProperties FeatureConigurationProperties;
+        internal static FeatureConfigurationProperties FeatureConfigurationProperties;
         internal static SubscriptionProperties SubscriptionProperties;
 #if SET_LKG_COMMAND
         internal static BSD_FEATURE_CONFIGURATION_STATE? LKGStatus;
@@ -52,7 +52,7 @@ namespace Albacore.ViVeTool
                 flags.HasFlag(ArgumentBlockFlags.VariantPayloadKind) ||
                 flags.HasFlag(ArgumentBlockFlags.VariantPayload) ||
                 flags.HasFlag(ArgumentBlockFlags.Priority)))
-                FeatureConigurationProperties = new FeatureConigurationProperties();
+                FeatureConfigurationProperties = new FeatureConfigurationProperties();
 
             if (flags != 0 &&
                 (flags.HasFlag(ArgumentBlockFlags.ReportingKind) ||
@@ -113,13 +113,13 @@ namespace Albacore.ViVeTool
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.EnabledStateOptions) && key == "/experiment")
                 {
-                    FeatureConigurationProperties.EnabledStateOptions = RTL_FEATURE_ENABLED_STATE_OPTIONS.WexpConfig;
+                    FeatureConfigurationProperties.EnabledStateOptions = RTL_FEATURE_ENABLED_STATE_OPTIONS.WexpConfig;
                     flags &= ~ArgumentBlockFlags.EnabledStateOptions;
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.Variant) && key == "/variant")
                 {
                     if (TryParseDecHexUint(value, out uint parsedVariant))
-                        FeatureConigurationProperties.Variant = parsedVariant;
+                        FeatureConfigurationProperties.Variant = parsedVariant;
                     flags &= ~ArgumentBlockFlags.Variant;
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.VariantPayloadKind) && key == "/variantpayloadkind")
@@ -130,25 +130,25 @@ namespace Albacore.ViVeTool
                         HelpMode = true;
                         return;
                     }
-                    FeatureConigurationProperties.VariantPayloadKind = parsedKind;
+                    FeatureConfigurationProperties.VariantPayloadKind = parsedKind;
                     flags &= ~ArgumentBlockFlags.VariantPayloadKind;
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.VariantPayload) && key == "/variantpayload")
                 {
                     if (TryParseDecHexUint(value, out uint parsedPayload))
-                        FeatureConigurationProperties.VariantPayload = parsedPayload;
+                        FeatureConfigurationProperties.VariantPayload = parsedPayload;
                     flags &= ~ArgumentBlockFlags.VariantPayload;
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.Priority) && key == "/priority")
                 {
                     if (!Enum.TryParse(value, true, out RTL_FEATURE_CONFIGURATION_PRIORITY parsedPriority) ||
-                        ((int)parsedPriority < 1 || (int)parsedPriority > 14))
+                        (uint)parsedPriority > 15)
                     {
                         ConsoleEx.WriteErrorLine(Properties.Resources.InvalidEnumSpec, value, "Priority");
                         HelpMode = true;
                         return;
                     }
-                    FeatureConigurationProperties.Priority = parsedPriority;
+                    FeatureConfigurationProperties.Priority = parsedPriority;
                     flags &= ~ArgumentBlockFlags.Priority;
                 }
                 else if (flags.HasFlag(ArgumentBlockFlags.ReportingKind) && key == "/reportingkind")
@@ -225,7 +225,7 @@ namespace Albacore.ViVeTool
         }
     }
 
-    internal class FeatureConigurationProperties
+    internal class FeatureConfigurationProperties
     {
         internal RTL_FEATURE_ENABLED_STATE_OPTIONS EnabledStateOptions;
         internal uint Variant;

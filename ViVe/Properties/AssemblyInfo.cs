@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Albacore.ViVe")]
-[assembly: AssemblyCopyright("Copyright © @thebookisclosed 2022")]
+[assembly: AssemblyCopyright("Copyright © @thebookisclosed 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2022.6.27.0")]
-[assembly: AssemblyFileVersion("2022.6.27.0")]
+[assembly: AssemblyVersion("2023.2.28.0")]
+[assembly: AssemblyFileVersion("2023.2.28.0")]

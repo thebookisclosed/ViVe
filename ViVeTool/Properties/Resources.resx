@@ -117,11 +117,15 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="BootStatInitFailed" xml:space="preserve">
+    <value>An error occurred while initializing the boot status data file ({0})
+Custom boot time overrides will be stored but won't load until the data file is present</value>
+  </data>
   <data name="BootStoreRebootTip" xml:space="preserve">
     <value>Boot store changes require a reboot to fully take effect, please do so if a configuration appears to be missing</value>
   </data>
   <data name="Branding" xml:space="preserve">
-    <value>ViVeTool v0.3.2 - Windows feature configuration tool
+    <value>ViVeTool v0.3.3 - Windows feature configuration tool
 </value>
   </data>
   <data name="ChangestampDisplay" xml:space="preserve">
@@ -154,7 +158,7 @@ Arguments are now position independent and clearly labeled, ambiguous strings of
     <value>HasSubscriptions: {0}</value>
   </data>
   <data name="FeatureDisplay_Payload" xml:space="preserve">
-    <value>Payload         : {0:x}</value>
+    <value>Payload         : 0x{0:x}</value>
   </data>
   <data name="FeatureDisplay_PayloadKind" xml:space="preserve">
     <value>PayloadKind     : {0} ({1})</value>
@@ -237,12 +241,15 @@ invalidate this data due to a programming oversight.</value>
   <data name="Help_FullReset" xml:space="preserve">
     <value>Syntax:
   /fullreset [/store:&lt;both | runtime | boot&gt;]
+  [/priority:{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}]
 
 This command removes all custom feature configuration overrides, effectively reverting
 feature store contents to their clean install state. Both stores are targeted by default.
+If a priority is specified, only features in that specific priority will be reset.
 Use with caution.
 
-ImageDefault (0) and ImageOverride (15) priority configurations are unaffected by this command.</value>
+ImageDefault (0), Security (9) and ImageOverride (15) priority configurations are
+unaffected by this command.</value>
   </data>
   <data name="Help_Import" xml:space="preserve">
     <value>Syntax:
@@ -252,7 +259,8 @@ Imports all feature configurations stored in a file into your system. By default
 
 Specifying /replace performs a full reset before importing data.
 
-ImageDefault (0) and ImageOverride (15) priority configurations are unaffected by this command.
+ImageDefault (0), Security (9) and ImageOverride (15) priority configurations are
+unaffected by this command.
 
 Examples:
   /import /filename:features.bin
@@ -280,7 +288,7 @@ Status descriptions:
   </data>
   <data name="Help_NotifyUsage" xml:space="preserve">
     <value>Syntax:
-  /notifyusage {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
+  /notifyusage {/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}
   /reportingkind:&lt;0-65535&gt; /reportingoptions:&lt;0-65535&gt;
 
 Fires a feature usage notification. If a subscription with matching Kind &amp; Options conditions
@@ -295,10 +303,12 @@ Examples:
     <value>Syntax:
   /query [/store:&lt;runtime | boot&gt;] [/id:&lt;comma delimited feature IDs&gt;]
   [/name:&lt;comma delimited feature names&gt;]
+  [/priority:{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}]
 
 If no store is specified, the Runtime store will be queried by default.
 You can specify feature IDs or names to filter the query results, in this case only
 the override with the highest priority will be displayed.
+If a priority is specified, only features in that specific priority will be shown.
 
 Boot store queries reflect the state on system startup, if you've made any changes
 to it since, a reboot is required for them to show up in the output. This is intended
@@ -311,15 +321,17 @@ Examples:
   </data>
   <data name="Help_Reset" xml:space="preserve">
     <value>Syntax:
-  /reset {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
-  [/priority:{{&lt;enrollment | service | user | userpolicy | test&gt; | &lt;1-14&gt;}}] [/store:&lt;both | runtime | boot&gt;]
+  /reset {/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}
+  [/priority:{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}]
+  [/store:&lt;both | runtime | boot&gt;]
 
 Features can be specified using both their IDs and names, mixing and matching is allowed.
 
 By default the features you've chosen will have their configuration overrides erased from
 all priorities and both stores. Specifying a priority will limit the scope of the reset.
 
-ImageDefault (0) and ImageOverride (15) priority configurations are unaffected by this command.
+ImageDefault (0), Security (9) and ImageOverride (15) priority configurations are
+unaffected by this command.
 
 Examples:
   /reset /id:12345678
@@ -330,7 +342,8 @@ Examples:
     <value>Syntax:
   {0} {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}} [/variant:&lt;0-63&gt;]
   [/variantpayloadkind:&lt;none | resident | external&gt;] [/variantpayload:&lt;0-4294967295&gt;] [/experiment]
-  [/priority:{{&lt;enrollment | service | user | userpolicy | test&gt; | &lt;1-14&gt;}}] [/store:&lt;both | runtime | boot&gt;]
+  [/priority:{{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}}]
+  [/store:&lt;both | runtime | boot&gt;]
 
 The parameters in square brackets don't need to be specified and will use these defaults:
   Variant           : 0

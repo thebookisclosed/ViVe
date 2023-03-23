@@ -1,6 +1,6 @@
 ﻿/*
     ViVe - Windows feature configuration library
-    Copyright (C) 2019-2022  @thebookisclosed
+    Copyright (C) 2019-2023  @thebookisclosed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -116,5 +116,8 @@ namespace Albacore.ViVe.NativeMethods
             int dataLength,
             IntPtr returnLength
             );
+
+        [DllImport("ntdll.dll", CharSet = CharSet.Unicode)]
+        public static extern int RtlCreateBootStatusDataFile(string bootStatusPath);
     }
 }
