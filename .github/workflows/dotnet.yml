@@ -19,5 +19,17 @@ jobs:
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
+    - name: Setup NuGet
+      uses: NuGet/setup-nuget@v1
+      
+    - name: Restore Packages
+      run: nuget restore ViVe.sln
+
     - name: Build solution
-      run: msbuild ViVe.sln -t:rebuild -property:Configuration=Release
+      run: msbuild ViVe.sln -t:rebuild -m -property:Configuration=Release
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: vive
+        path: ${{github.workspace}}/
