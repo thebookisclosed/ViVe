@@ -12,19 +12,16 @@ on:
 jobs:
   build:
 
-    runs-on: windows-2019
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Setup MSBuild
       uses: microsoft/setup-msbuild@v1.1
 
-    - name: Setup NuGet
-      uses: NuGet/setup-nuget@v1
+    - name: Setup .NET 4.8.1
+      run: winget install -h Microsoft.DotNet.Framework.DeveloperPack_4
       
-    - name: Restore Packages
-      run: nuget restore ViVe.sln
-
     - name: Build solution
       run: msbuild ViVe.sln -t:rebuild -m -property:Configuration=Release
       
