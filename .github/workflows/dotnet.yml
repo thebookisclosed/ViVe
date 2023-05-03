@@ -25,8 +25,13 @@ jobs:
     - name: Build solution
       run: msbuild ViVe.sln -t:rebuild -m -property:Configuration=Release -property:DebugSymbols=false -property:DebugType=None
       
+    - name: Edit config
+      run: |
+        rm ${{github.workspace}}/ViVeTool/bin/Release/ViVeTool.exe.config
+        cp ${{github.workspace}}/Extra/FeatureDictionary.pfs ${{github.workspace}}/ViVeTool/bin/Release/
+      
     - name: Upload Artifact
       uses: actions/upload-artifact@master
       with:
-        name: vive
+        name: ViVeTool
         path: ${{github.workspace}}/ViVeTool/bin/Release/
