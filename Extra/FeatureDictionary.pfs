@@ -4,7 +4,7 @@ PrintScreenYieldableHotkey,44064766
 SetSearchBoxModeFromSearchAppActivatedArgs,44049736
 Servicing_MultiUserSkuCpuUsageFix_44044232,44044232
 Servicing_NullPointerFix_44029684,44029684
-DesktopSpotlightInternalId,43995743
+DesktopSpotlightInternalId2023,43995743
 ContainerOSPlus_BaseImage,43992101
 SearchBoxCursorIssueInRTL_43980409,43980409
 DoNotShowSuggestionsOnStart,43979271
@@ -42,7 +42,7 @@ CompositionSwapchainHDRHint,43752937
 ScoobeUserSetupLogonManager,43746648
 CorrelationIdFix,43746533
 Servicing_OneSettingsProvider_43729564,43729564
-RemoveCIToggleCheck,43729561
+Servicing_PrefetchOneSettings_43729561,43729561
 WdfObjectExcessiveAllocation_HighThreshold,43716297
 SetSearchConversationId,43715910
 Servicing_TaskManagerTabNavigationStuckOnFilterWrapper,43701566
@@ -52,15 +52,15 @@ DimeUpsell,43695740
 FixGleamDisappearWhenFocusLostOnSearchBoxWithFlyoutOpen,43692464
 AppDefaultAumidRegistry,43685888
 Servicing_FastJumpListContextMenu,43685020
-Servicing_FocusSessionRaceFix,43682929
+Servicing_FocusSessionRaceFixNi,43682929
 EnsureCorrectWXHDll,43675366
 Servicing_WUScanLIPDefaultFallbackLanguageFix_43671300,43671300
-ContinuousInnovationOptin,43669963
+ContinuousInnovationOptinNi,43669963
 ChildHwndForIslandInputSite,43667795
 WUSupportsExtendedAttributes2,43666139
 MSRC78070_43665376,43665376
 Servicing_USOScanBeforeInitialLogon_43653942,43653942
-Servicing_SAC_Telemetry_Rework_40616880,43619474
+Servicing_SAC_Telemetry_Rework_43619474,43619474
 DisableActivationVDevInAz,43615737
 VASDVAC,43611424
 Servicing_SearchInContainer,43605998
@@ -80,7 +80,7 @@ DesktopSpotlightNoFallbackImage,43527701
 MSDTDeprecationPhase1,43517369
 DimeGetStorage,43503958
 DimeResubscribe,43503940
-SetSearchBoxModeFromSearchAppActivatedArgs,43491606
+SetSearchBoxModeFromSearchAppActivatedArgsNi,43491606
 Servicing_43488828_SAC_DefenderDisabledOnUpgrade,43488828
 AEGVIF,43483788
 FixSinglePaneSearchBoxOnTaskbarPortraitIssue,43473131
@@ -161,13 +161,14 @@ OOBEOneDriveShellExperienceZn,43121389
 Servicing_ShdocvwKeepsMoTWIfAppWasNotInstalled,43117987
 Servicing_ShdocvwShowMicrosoftStoreUI,43113673
 DockedHandwritingSurrogatePairCharacters,43107776
-Servicing_DefaultAssocExpandEnvStrings,43105680
+Servicing_DefaultAssocExpandEnvStringsNi,43105680
 MSABadStateWnf,43105074
 Reset_WNP_Shutdown_Flag,43101953
 Servicing_AP_ESP_dual_enrollment,43101226
 TelemetryManager,43100445
 MSRC77199_43088593,43088593
 MMPC_cert_Pinning,43087766
+OrgMsgAuthBeaconsInUndockedShell,43087277
 OrgMsgAuthBeacons,43077409
 Servicing_Media_PresentAt_HWND_DCompVisual,43074997
 Servicing_PDEPage,43073005
@@ -697,7 +698,7 @@ AdminFlowRejuv_UninstallOS,41670003
 MSRC74859_41668262,41668262
 Servicing_SECUREBOOT_RESEAL,41668098
 UseUdkItemImageStreamProvider,41667973
-StageDuringDownload,41666070
+HydrateDuringDownload,41666070
 MSRC74841_41664602,41664602
 MSRC74835_41664290,41664290
 Servicing_addDeviceAuthForFederatedAccount,41660971
@@ -719,7 +720,7 @@ Servicing_41643025,41643025
 MSRC74740_41640044,41640044
 MSRC74739_41639823,41639823
 MSRC74737_41639698,41639698
-Servicing_NewUpdateFlow,41631390
+Servicing_NewUpdateFlowNi,41631390
 Servicing_ParallelHydratorCustomPath_41617577,41617577
 WUCategoryScanOptimization,41613238
 Servicing_RPCSSLockOrderInversion,41606392
@@ -760,7 +761,7 @@ Servicing_RPCSSRaiseExplicitActivationAuthenLevel,41524059
 DesktopSpotlightDataTemplateV2,41520931
 Servicing_FECmdBarNullPtr_41519165,41519165
 Servicing_FixRotationDuringSleepModeNi,41518955
-Servicing_SearchHangQuiesceFix,41517746
+Servicing_DSBSuspensionFix_41517746,41517746
 Servicing_MFLMissingNeededFiles_41517718,41517718
 Servicing_AppCacheLambaCaptureFix_41517218,41517218
 3FingerAnimationTimer,41516800
@@ -819,7 +820,7 @@ StickerLayer,41345117
 Servicing_LegacyRemotingAlphaIssues,41344366
 MSRC74438_41343569,41343569
 MSRC74436_41343146,41343146
-Servicing_PDEPage,41342175
+Servicing_PDEPageNi,41342175
 Servicing_WiseONNXMSZIP,41341930
 SharingLinks,41340870
 MSRC74426_41339755,41339755
@@ -2182,14 +2183,14 @@ MSRC68851_37290630,37290630
 Servicing_StopLoadPersistedBandSiteData_37289523,37289523
 BugFix37289095,37289095
 Servicing_ExtUiSegoeUiVariable_37286320,37286320
-SettingsRejuv_Wheels,37282754
+SettingsRejuv_Wheels_37282754,37282754
 SuggestedSearchQueries,37272181
 MutlipleAssessments,37269723
 WidgetsCompositionBasedHosting,37268021
 DeliveryOptimization_DnsSdPeerDiscovery,37260154
 RdsAadAuth,37258284
 BiGlobalLockWatchdog,37256214
-CustomTelemetryLevel,37256055
+WiseInfra2302,37256055
 Servicing_FileExplorerNamedPropertyStoreToValueSetCrash,37254716
 MDM_Extensibility_DSC_Native,37252711
 AllowCustomSSPsAPs,37242222
@@ -4737,7 +4738,7 @@ MSRC57844_26485548,26485548
 MSRC58837_26484125,26484125
 ReadClipboardEvent,26475108
 PoliteShellOplockProvider,26473202
-DesktopTouchImprovementDefaultChange,26469242
+DesktopTouchImprovementDefaultChangeFe,26469242
 Servicing_ClearKanaKeyStateOnFocusOut_26458908,26458908
 InputAppActivationImprovementFe,26440631
 DCEUseIterativeHitTest,26435490
@@ -6150,7 +6151,7 @@ MSRC52133_21747001,21747001
 MSRC52132_21746959,21746959
 MSRC52131_21746847,21746847
 CombinedDataUsageStatusPage,21743692
-HideUwpEdgeFromAppListIfWin32EdgePresent,21743510
+HideUwpEdgeFromAppListIfWin32EdgePresent19H1,21743510
 VAIL_Vsync_Projection,21742760
 MSRC52124_21736133,21736133
 EnableVpciUefiBoot,21726436
@@ -6336,7 +6337,7 @@ MSRC51322_21166185,21166185
 PinMigration,21157932
 IRawNotification3,21156642
 DesktopTouchImprovementMaxWindow,21154990
-DesktopTouchImprovementForTabletPosture,21154937
+DesktopTouchImprovementForTabletPostureVbPre,21154937
 AppDefaultsSetAppAsDefault,21154688
 XAMLFileExplorerCloudFiles,21154437
 MSRC51306_21153188,21153188
@@ -6415,7 +6416,7 @@ BluetoothLEExtendedAdvertising_Api,20977847
 BluetoothLEAlternativePhySupport_Api,20977799
 HostAILPositionerInRDPInit,20975359
 SettingsSearchCFR,20974195
-GifSuggestionOnDesktop,20965193
+GifSuggestionOnDesktopVbPre,20965193
 MSRC51034_20960573,20960573
 MSRC51030_20957765,20957765
 CaptureCursorAPI,20957018
@@ -6593,7 +6594,7 @@ KerbSupportKeyListReq,20495629
 VoiceAssistantPositioner,20484887
 FailFastOneTimePackageNotApplicable,20480335
 FailFastForHandlerIntializationFailure,20477373
-EICinTIConDesktop,20470972
+EICinTIConDesktopVbPre,20470972
 ReportLoggedOnCompleted,20469805
 OmaDmAlertBlocking,20462393
 NotificationFrequencyImprovements,20462323
@@ -6608,7 +6609,7 @@ ComingSoon,20446796
 OfflineBitAsSlow,20442768
 19H2_Rollback,20442546
 MSRC50097_20441275,20441275
-SuggestionUIOnDesktop,20438551
+SIPSuggestionUIOnDesktop,20438551
 AppDefaultsRecommendNewEdge,20432194
 MultiUserSequentialSignin,20431957
 PenDetachIWS,20430744
@@ -6938,7 +6939,7 @@ MSRC48034_19302747,19302747
 MSRC48033_19302682,19302682
 PolicyEnforcedWebcamAccess,19294815
 CompareGPWallpaperModifiedTimeAgainstCache,19287428
-CoalesceAACAudioSamples,19285947
+CoalesceAACAudioSamples19H1,19285947
 MSRC48020_19284385,19284385
 IoMmuIsolationForGPUP,19276463
 HolographicSecureDesktop,19276410
@@ -7001,7 +7002,7 @@ MSRC47113_19124724,19124724
 MSRC46952_19124717,19124717
 MSRC46502_19124600,19124600
 AllowFullTrustUWP,19123720
-AllowFullTrustUWP,19123661
+AllowFullTrustUWP19H1Pre,19123661
 MSRC45295_19123462,19123462
 VisualSurfaceAPI,19122257
 ZoomSupport,19121866
@@ -7130,7 +7131,7 @@ MSRC47394_18819702,18819702
 Hub_HideAutoGuests,18815522
 AtomicCheckFailure,18815308
 MSRC46243_18814768,18814768
-TextPrimitive,18813244
+TextPrimitiveRS5,18813244
 WindowedPopups,18812565
 MSRC46244_18811894,18811894
 ActivitySuggestionsAPI_Source,18810100
@@ -7145,7 +7146,7 @@ TouchInputVirtualization,18789657
 MSRC47359_18787260,18787260
 EICWithTouch,18784576
 AlwaysLaunchExplorerInSeparateProcess,18780676
-AlwaysLaunchExplorerInSeparateProcess,18778750
+AlwaysLaunchExplorerInSeparateProcess19H1Pre,18778750
 AdaptiveColor_BringUp,18765370
 DESTuningParameters,18765296
 HiddenWebViewInStart,18765106
@@ -7183,7 +7184,7 @@ MSRC47459_18671508,18671508
 DXGI_DList_Reparenting_Decision,18671492
 MSRC47193_18666348,18666348
 AllowNullUserAppServices,18656672
-BannersKFMTemplate,18655728
+BannersKFMTemplate19H1Pre,18655728
 Autopilot,18632135
 TaskManagerHealthTelemetry,18631046
 HvciRollback,18630433
@@ -7247,7 +7248,7 @@ JumpListV3,18358360
 JumpListActivityHistoryIntegration,18358352
 MSRC46521_18338331,18338331
 MSRC46522_18338316,18338316
-TSF3CHSIME,18333244
+TSF3CHSIMEFe,18333244
 GIPJPN,18333221
 ContentHub_PeoplePillar,18327379
 VoiceTypingOverlayUX,18326278
@@ -7286,7 +7287,7 @@ Bug_UseCommitTimerOnStart,18031186
 DefaultDownloadsSorting,18001239
 ClipboardUIImprovement19H1,17991219
 MergedSearchZeroInput,17983826
-SearchAndCortanaSplit,17983799
+SearchAndCortanaSplit19H1Pre,17983799
 SearchAndCortanaSplit,17983783
 VaultCDSSync,17975581
 SharedPCOneDrive,17975574
@@ -7520,8 +7521,8 @@ FluencyHybrid,16426302
 CtfmonWatchDog,16424680
 PinWebsiteActionV2,16419964
 Brightness3LegacyAPIReroute,16417871
-VblankInkPrediction,16404897
-ImprovedStraightLineInkPrediction,16404893
+VblankInkPredictionRS5,16404897
+ImprovedStraightLineInkPredictionRS5,16404893
 EICinTIC,16404873
 SmoothWindowDrag,16398156
 EdgeHandwritingPanel,16389227
@@ -7617,7 +7618,7 @@ PreventSUALaunchAsDSMA,15953702
 ExperimentalHidSensors,15950370
 EnableStartOnAFC,15940751
 MSRC47524_15933404,15933404
-WdfDirectedPowerTransition_DefaultOptIn,15933339
+WdfDirectedPowerTransition_DefaultOptIn19H1Pre,15933339
 OobeZdpDCAT,15933296
 YourPhoneDesktopShortcut,15932089
 SearchProvidersFor10S,15930214
@@ -7661,7 +7662,7 @@ LegacyHPDFiltering,15689327
 ActivityHistorySettingsOnAND,15685752
 StartUnpinCollection,15685451
 TaskManagerFeatureExperiment,15681380
-TreeDumping,15627393
+TreeDumping19H1Pre,15627393
 NarratorHome,15622912
 CDPAppResourceAPI,15604978
 ShowShareSettingsPageOnHubOS,15591792
@@ -7808,7 +7809,7 @@ ReportOpenClassesRootFailure,14501286
 WCGDefaultProvisioning,14498544
 HolographicHardwareContentProtection,14496729
 AOobeOneDrivePage,14492740
-BingSearchLockscreen,14486956
+BingSearchLockscreenVbPre,14486956
 OfflineCapableUserLockScreenSettingsMigrationPlugin,14486954
 AppDefaultsOpenWithAny,14482024
 XamlEnableISACForSpatialAudioOnDesktop,14481055
@@ -7853,7 +7854,7 @@ TabShellVisibilityOverrideToOnForGates,14291807
 D3D12MetaCommand,14291127
 ShellUserSelection,14291063
 AutoGamePowerProfile,14290802
-CloudStoreSyncOnSubstrateForAAD,14288894
+CloudStoreSyncOnSubstrateForAADRS5Pre,14288894
 MSRC41449_14282720,14282720
 TimelineSuggestions,14277169
 CloudFileDisguisePlaceholders,14276994
@@ -8063,7 +8064,7 @@ SignoutInSettings,12947221
 D3D12PeerToPeerAtomics,12944950
 XDeviceMessageRobustness,12944044
 EPUB_DisableSecurityChecks,12923997
-SettingsHomeProgrammableMultiPromoCard,12908205
+SettingsHomeProgrammableMultiPromoCardRS5Pre,12908205
 SettingsAccountsInfoProgrammablePromoCard,12908183
 OfflineCompassPage,12885170
 D3D12Force9on12,12881744
@@ -8097,7 +8098,7 @@ ExternalBrightness,12759424
 Hub_EnableDeviceOwner,12757890
 ForceNRE,12756137
 MSRC39592_12749998,12749998
-OobeNetworkLossAversionPage,12749239
+OobeNetworkLossAversionPageRS5Pre,12749239
 Audio_Mixer,12740182
 Brightness3dxgkrnl,12732606
 CloudTrust,12730897
@@ -8543,7 +8544,7 @@ AddSwitchAsyncContextToPositionerActivations,9582236
 WnsMirroringAccountSwitcher,9578772
 OneLineClock,9564905
 UIBCEnableToast,9562517
-FuzzyInputOnXamlKeyboard,9550325
+FuzzyInputOnXamlKeyboardRS5Pre,9550325
 HolographicDesktopViewLauncher,9510935
 HandwritingCHS_CombineGesture,9492607
 MusicRecoForChinaMarket,9456144
@@ -9046,9 +9047,8 @@ UiaSendVersionNumber,3623713
 LockReliability_SynchronizeShutdownWithBrokerEndpointCalls,3529167
 JumplistUpdateFix,3511020
 RuleDiff,3424263
-Profile_Service_Retry_Load_Loop,3276900
 DesktopIconLayoutRefactor,3261926
-TextPrimitiveAPI,3251313
+GlyphRunPrimitiveAPI,3251313
 InstallAttribution,3222455
 ShellLauncherRepository,2872564
 BannersKFM_Logo,2641295
