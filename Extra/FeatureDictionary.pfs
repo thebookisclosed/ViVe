@@ -13,6 +13,7 @@ AppRestorePlaceholdersWait,43968183
 EnableIddCx110,43960263
 OobeRestoreDataLayer,43933049
 PostSV2Improvements,43912504
+FixTooltipPlacementIssue_43893345,43893345
 MSRC78510_43892810,43892810
 BackupSignals,43884502
 RemoveCIToggleCheck,43882036
@@ -20,6 +21,7 @@ BackupStatus,43866633
 RequireValidatedTypeLibForPp,43860926
 DisableTypeLibMonikerFallbackForPp,43860922
 NumaSpanningForUnderhill,43857512
+RecommendedItemPlacement,43853271
 Servicing_RetrieveCertPublisher_43838727,43838727
 ShellFlyoutAltF4Fix,43803985
 SystemIndexPrimerQuery,43802853
@@ -56,6 +58,7 @@ Servicing_FocusSessionRaceFixNi,43682929
 EnsureCorrectWXHDll,43675366
 Servicing_WUScanLIPDefaultFallbackLanguageFix_43671300,43671300
 ContinuousInnovationOptinNi,43669963
+IntegratedServicesAdditionalLinks,43669646
 ChildHwndForIslandInputSite,43667795
 WUSupportsExtendedAttributes2,43666139
 MSRC78070_43665376,43665376
@@ -70,6 +73,7 @@ UseDDisplayForDWMTestOnly,43602874
 RefreshGalleryOnCollectionChange,43602643
 TaskbarRestorePlaceholders,43591660
 SuppressInputAppActivationDuringConnectedStandby,43591024
+USQCardDefaultCollapsed,43588850
 Servicing_PolicyReaderPauseEndTime_43585766,43585766
 TailoredScoobeLocal,43584642
 DesktopSpotlightHandleNoIrisCreatives,43581066
@@ -78,6 +82,7 @@ SearchBoxOnTaskbarGleamHover,43572692
 Servicing_LogonSessionOff,43538539
 DesktopSpotlightNoFallbackImage,43527701
 MSDTDeprecationPhase1,43517369
+PerpetualEOS,43506206
 DimeGetStorage,43503958
 DimeResubscribe,43503940
 SetSearchBoxModeFromSearchAppActivatedArgsNi,43491606
@@ -160,6 +165,7 @@ OneSettingsProvider,43132291
 OOBEOneDriveShellExperienceZn,43121389
 Servicing_ShdocvwKeepsMoTWIfAppWasNotInstalled,43117987
 Servicing_ShdocvwShowMicrosoftStoreUI,43113673
+SDXIntegratedServices,43113029
 DockedHandwritingSurrogatePairCharacters,43107776
 Servicing_DefaultAssocExpandEnvStringsNi,43105680
 MSABadStateWnf,43105074
@@ -230,6 +236,7 @@ Bug42941085,42941085
 PSeekTest,42940418
 ScreenshotSelfhost,42940170
 UefiDhcp6LinkLayerAddress,42940067
+FixAccessibleClickAction,42939793
 SyncSettingForPersonalizationPolicy,42939444
 FileExplorerWASC,42936324
 AugmentedEntryPointIconAnimation,42934589
@@ -564,6 +571,7 @@ SmartOptOutToast,41967741
 Servicing_FECommandBarThemeFix,41963564
 MSRC75526_41953450,41953450
 Servicing_NavigateParameters_41951564,41951564
+CloudDrivenTextAndGleam,41950597
 Servicing_WDAC_PATH_RULES,41948661
 Servicing_LogSelectedEntityAction,41946395
 MSRC75504_41943992,41943992
