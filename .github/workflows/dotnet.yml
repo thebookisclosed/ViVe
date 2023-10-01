@@ -1,0 +1,37 @@
+# This workflow will build a .NET project
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-net
+
+name: .NET
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Setup MSBuild
+      uses: microsoft/setup-msbuild@v1.1
+
+    - name: Setup .NET 4.8.1
+      run: cup -y netfx-4.8.1-devpack
+      
+    - name: Build solution
+      run: msbuild ViVe.sln -t:rebuild -m -property:Configuration=Release -property:DebugSymbols=false -property:DebugType=None
+      
+    - name: Edit config
+      run: |
+        rm ${{github.workspace}}/ViVeTool/bin/Release/ViVeTool.exe.config
+        cp ${{github.workspace}}/Extra/FeatureDictionary.pfs ${{github.workspace}}/ViVeTool/bin/Release/
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@master
+      with:
+        name: ViVeTool
+        path: ${{github.workspace}}/ViVeTool/bin/Release/
