@@ -1,0 +1,59 @@
+name: "Report a ViVeTool bug"
+description: Experiencing unexpected crashes or unintended behavior? File a report here!
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking your time to file a bug report!  
+        Before filling out the form, please give the report a brief title. e.g. _Unhandled exception when using /export_
+        
+        In case you've followed a tutorial for toggling features and didn't get the desired result, this is most likely **NOT a bug.**
+        Similarly, do **NOT** file a bug if a feature can't be toggled anymore _after updating_. Once Microsoft finishes experimenting with a feature it gets put into a permanently Enabled or Disabled state which ViVe can't change anymore.
+        Please read [this FAQ article](https://github.com/thebookisclosed/ViVe/wiki/Which-features-can-ViVeTool-toggle%3F) if you have any further questions.
+  - type: input
+    id: tool-version
+    attributes:
+      label: Tool version
+      description: Which version of ViVeTool is this report for?
+      placeholder: e.g. v0.3.3
+    validations:
+      required: true
+  - type: input
+    id: os-version
+    attributes:
+      label: OS version
+      description: Which version of Windows were you using when this bug occurred?
+      placeholder: e.g. Windows 11 build 22621.1413
+    validations:
+      required: true
+  - type: dropdown
+    id: architecture
+    attributes:
+      label: Architecture
+      description: Which architecture did you encounter this bug on?
+      options:
+        - "x64"
+        - "x86"
+        - "arm64"
+    validations:
+      required: true
+  - type: textarea
+    id: screenshot
+    attributes:
+      label: Screenshot
+      description: Please include/paste a screenshot of the bug in the field below.
+      placeholder: Make sure that the problematic command is clearly visible in the screenshot.
+    validations:
+      required: true
+  - type: textarea
+    id: extra-steps
+    attributes:
+      label: Extra steps
+      description: If the bug occurrs only under specific circumstances, please describe the steps you've made to encounter it. Otherwise say "None."
+      placeholder: |
+        1) Run /fullreset
+        2) Reboot
+        3) Run /export
+    validations:
+      required: true
