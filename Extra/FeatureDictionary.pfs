@@ -1,3 +1,4 @@
+Servicing_Remove1PAppPrivacyExceptions,47473867
 Mercury_App_Backup_Validation_V2,47366888
 Containment_UUS_UsoCapabilities_47346049,47346049
 PersonalizationCustomThemeRestoreHandler,47337060
@@ -16,6 +17,7 @@ DesktopSpotlightRescaleImprovements,47162830
 Servicing_WV2RuntimeSelectorAllowAccessForNoVelocityApps,47150758
 CrossDeviceStubPreference,47148933
 Servicing_ThemeHelperSingletonInitFailureMitigation,47137540
+PGTBPlaceholderPinning,47134981
 CastDiscoverability_UI_MoreCastSettings,47129476
 CastDiscoverability_UI_AllowInput,47129450
 W365Switch_Engineering_Improvements_SwitchBugFixes,47119144
@@ -32,13 +34,16 @@ Servicing_WinAppSdkCommandBarFlyoutBackdropLeak,47050253
 MSRC82929_47049674,47049674
 Containment_UUS_UpdateModesSLA_47049334,47049334
 SettingsHomepage_PermanentId_PageVisibilityListPolicyBugFix,47040547
+NarratorSOI,47019672
 ShowThirdPartyAppOnL1,46993263
 Servicing_FileExplorer_GalleryICloudShareToWhatsAppFix,46978298
 ValidateOneDriveMismatch,46972141
 HAIPTest,46968305
 Servicing_SendBuildBranch_46966683,46966683
 ContextMenuEnumVerbConfigSubCommands,46964803
+Servicing_CPUModelFallbackInMTLDevices_46951448,46951448
 FoDMetadataOverrideWMPL,46943490
+Servicing_LampArrayPowerPerf,46936193
 CastDiscoverabilityIrisPrompt,46932225
 Containment_UUS_DockedFlightSettingsAPIs_46898267,46898267
 DesktopSpotlightTipImprovements,46890315
@@ -59,7 +64,9 @@ HandleUnknownInvokers,46772673
 Servicing_PFVC_FixRaceCondition,46772309
 Servicing_WinAppSdkLineUnderTabViewFix,46770740
 WindowsBackupSignInNavigationUpdate,46754389
+EcoModeEnergySaver_AcOnlyIcon,46753679
 Servicing_WinAppSdkXamlLocalizeDisplayLanguage,46751006
+RefsDedupSvc_RunAtLowPriority,46743511
 DesktopSpotlightRestoreLogon,46741527
 ARCDSS,46736541
 BackupRestoreCoordinatorDelayNetworkRestore,46735733
@@ -89,8 +96,10 @@ HelpPaneChanges,46649440
 Servicing_LampArrayUnattend,46649211
 Servicing_TFLPrePinMDMFix,46645502
 Settings_AutologinAfterRestart,46642396
+GPM_ResidencyTracking,46642071
 CheckRemoveBackgroundImageSetting,46641766
 Containment_UUS_Feature_PostLogonDisableServer_46639152,46639152
+Servicing_NDUPAutoAcceptEULASupport,46638769
 DisableBlockedCameraSource,46637522
 AppSiloBrokerShellObjectsGermanium,46634830
 Brain_RestrictPreviewPackageScan_Containment,46633926
@@ -143,6 +152,7 @@ ID46518162,46518162
 LaunchListItemRefactor,46518129
 Containment_UUS_DbErrorHandling_46518005,46518005
 WindowsBackupProgressBarUpdate,46516061
+Servicing_ReFSDedupAvoidOverLogging,46514472
 Servicing_CollectionFrozenCheckOnRepeaterItemsSource_46510628,46510628
 Audio_MicCategory,46502013
 Servicing_RemovingIndexerStatusCheck_46498509,46498509
@@ -159,6 +169,7 @@ SSRATest,46457961
 Servicing_UninstallUpdatesThirdPartyAppsFix,46456993
 Servicing_ConfigUpdateGetAction_46456972,46456972
 MTestAbShRTT,46455205
+OobeBloomUI,46450614
 MultiDetachedOC,46440044
 Servicing_StartMenuPolicyException_46439818,46439818
 SnapSuggestionsAPI,46436100
@@ -192,6 +203,7 @@ Servicing_MAPI_UndoC2RX,46343574
 ExplorerArchiveIntegrationPerf,46341257
 SyncSettingUIEnhancementsUpdate,46334003
 IE_SyncMode5,46275980
+Servicing_LampArrayHidTelemetry,46269702
 Servicing_FileExplorerSearchDispatcherTimerLeak_46268888,46268888
 Containment_UUS_UpdateForcedRebootScheduling_46268222,46268222
 Containment_UUS_BugFix_IpuCacheStatus_46264179,46264179
@@ -199,11 +211,14 @@ UnifiedConsentRegistryPermission,46254670
 HomepageRecognizesAssociatedMSA,46251949
 SyncSettingPolicyStatePersistBugFix,46246277
 Servicing_HandleShellPolicyExceptions,46245958
-W365Switch_BugFix,46243917
+CDP_WFDLimit,46245015
+W365Switch_Engineering_Improvements,46243917
+IconLoadTIPFix,46241418
 Servicing_FileExplorer_GalleryImprovements,46240254
 FixConcurrentRequests,46238738
 Containment_UUS_AutoActiveHoursRefresh_46238341,46238341
 MSRC81890_46238158,46238158
+KIDV2,46237304
 DesktopSpotlightThemeSetToCustomIssue,46229605
 Servicing_FixSearchIconLabelOverlap_46225611,46225611
 W365Boot_ManagedPCSettings_Display,46225113
@@ -212,6 +227,7 @@ Servicing_IToolTipIsOpen_46222664,46222664
 EnablePropertyOverride,46210758
 ST,46207943
 TaskManagerFeb24BugFixes,46195996
+ModernCompressToZip,46194714
 RetryBGTaskRegistrationIfNotAlreadyRegistered,46189746
 Servicing_FileExplorerWinAppSDKCachedState,46188883
 Servicing_KeepWebView2Visible_46188233,46188233
@@ -221,9 +237,11 @@ W365Boot_Engineering_Improvements,46179275
 ImeAccessibilityFix,46169883
 WinLogonSimplifyDwmLaunchDecision,46158195
 Servicing_WinAppSdkSkipInvalidateRectNull,46157957
+Servicing_ReFSDedupHandleCsvMoveError,46154705
 WASCConsentForOneDrive,46147434
 CameraControlDependentNotification,46145196
 Servicing_WinAppSdkPackDCompISharedAllocations,46144133
+CDP_WFDFixes,46118490
 CharMapAccessibilityFix,46115212
 Servicing_FileExplorerThemeChangeRaceConditionFix,46114610
 Containment_UUS_UXFeatureUpdateFix_46110984,46110984
@@ -235,6 +253,7 @@ MTestAbShFSC,46096237
 WebXTFlightsTelemetry,46095865
 Containment_UUS_BugFix_GetAttributeTargeting_46094346,46094346
 Containment_UUS_SLSTransientErrors_46091987,46091987
+Containment_UUS_ScanTransientErrors_46091930,46091930
 Containment_UUS_RemoveRefreshWuRedirRecoveryAction_46091646,46091646
 Servicing_FileExplorer_GetListPerfImprovements,46084709
 Servicing_FileExplorerPerf_BroadcastSingleMessage,46084421
@@ -243,7 +262,6 @@ Servicing_FixHamActivityStart,46081892
 Containment_UUS_BugFix_MccHostConfigUpdates,46081111
 Containment_UUS_WisePredictionsAPIChange_46077814,46077814
 MSRC81752_46077173,46077173
-3039530302,46077171
 Servicing_WinAppSdkEnableThemeLookupCacheDuringLayout,46076120
 Servicing_WinAppSdkSyncCreateContentExternalBackdropLink,46074461
 CheckPersonalizationCSPEnablement,46074233
@@ -307,6 +325,7 @@ MTestAbShLangExpFr,45949789
 MirrorEnterpriseFeatureControlState,45948678
 ESIM_LPA_V3,45948544
 DesktopSpotlightMultiMonitorPortraitFix,45941751
+WdfUmdfDriversFailuresMoreActionable,45937377
 MSRC81533_45934424,45934424
 ExpeditedApps_EKBTriggerRetry,45932354
 Servicing_ADSD_LapsSCForceOptionFix,45932197
@@ -342,6 +361,7 @@ ID45829750,45829750
 EcoModeEnergySaver_AcOnly,45828729
 MSRC81368_45828682,45828682
 Servicing_CloudTGTAquisitionIssue,45825777
+RDX_OOBE_Narrator_ScanMode_Activation_Accessibility,45820239
 SSRATest,45820237
 Containment_UUS_MisattributedOSSwapDetectionBugfix_45817459,45817459
 SettingsHomepage_PersonalizationPerf,45815822
@@ -364,6 +384,7 @@ Brain_V12SearchesForP3,45786681
 Brain_V10SearchesForP3,45786062
 Servicing_V12SearchesForP3_45785650,45785650
 Servicing_V10SearchesForP3_45785611,45785611
+IddRuntimePower,45779857
 WUNetworkUnavailableTelemetry,45778678
 DelegatedTokenRequests,45778528
 Servicing_IppVidPid,45777991
@@ -405,6 +426,7 @@ DoNotRaiseQueryTextChangedEventWhenSearchBoxClearText,45644232
 Servicing_FocusManagement_45643611,45643611
 Servicing_WSLEnterprise,45643164
 LoadBloomCreatives,45636699
+DisplayMux_Dynamic_Enabled,45634100
 Servicing_FixOMfxIndex,45633109
 MSRC81067_45630671,45630671
 Servicing_ScaledLayeredWindowRenderFix,45628173
@@ -425,13 +447,13 @@ WASCConsentForOneDriveBackupBanner,45573624
 VAOE,45572960
 EVAIO,45572939
 LaunchDimeForAquisitionUSQRenewal,45562151
-DataStoreLocks,45556653
+Containment_UUS_BugFix_DataStoreLocks_45556653,45556653
 MSRC80940_45538791,45538791
 Servicing_StatusIconCrash_45538063,45538063
 Servicing_SkipEnsureRegisterAppxAsSystem,45535753
 MSRC80905_45522986,45522986
 MSRC80903_45522815,45522815
-Servicing_AllowDevHomeUpdateForUO_45520592,45520592
+AllowDevHomeUpdateForUO,45520592
 Servicing_43488828_SAC_DefenderDisabledOnUpgrade,45519185
 Servicing_Resurrecting_45518293,45518293
 SyncSettingRestrictedUpdate,45512408
@@ -445,7 +467,7 @@ Servicing_Notepad_GB18030,45499572
 W365Boot_Branding,45493830
 NetworkUxBackupHandler,45490823
 Servicing_RestartPresentationOnBind,45489920
-StaticLinkingWuTrust,45488806
+Containment_UUS_StaticLinkingWuTrust_45488806,45488806
 PCN,45488263
 EnforceExplicitUserContextForMua,45484969
 MSRC80859_45484964,45484964
@@ -501,6 +523,7 @@ EcoModeEnergySaver,45296388
 Servicing_AllowOutlookUpdateForUO_45293209,45293209
 Servicing_AllowTFLUpdateForUO_45293196,45293196
 NSTOW,45286380
+PC,45286375
 PSSTest,45286373
 MSRC80633_45279764,45279764
 MSRC80633_DisableWerCplSupport,45279761
@@ -556,6 +579,7 @@ CMDWarnOnAutorunFailure,45178653
 SystemManagedOC,45178628
 Servicing_Deadlock_with_GroupPolicy,45176828
 Servicing_ReFSDedupLogJobFailed,45175016
+Servicing_OSK_LockscreenCheck,45174402
 ShadowAdmin,45172197
 Servicing_BlockDefaultTabHandlingForWebView2_45171298,45171298
 Containment_UUS_BugFix_TestKeysAllowedNoCache_45169978,45169978
@@ -717,11 +741,13 @@ Servicing_TelemetryActivationStoreDat,44926244
 Servicing_WEFBookmarkMatching,44926129
 Servicing_ADSD_LapsPAABrokenAfterHibernate,44926046
 MSRC78595_44925527,44925527
+ReFS_Temporary_Safe_Upgrade_Version_Override,44924115
 LCFixes,44924088
 VABF,44922301
 CloudPCBootFrontline,44919447
 Servicing_RebootlessRolloutFailure,44893675
 RemoveAutoElevationForShadowAdmin,44892967
+ResetDefaultUpdate,44892964
 Servicing_SnapAssistWTMReliability,44885308
 DesktopSpotlightContextMenuIrisBeacons,44876995
 MSRC78508_44876795,44876795
@@ -1121,6 +1147,7 @@ Servicing_IgnoreStaleSystemResources,44035054
 Servicing_USOGetUpdateManagerFix_44032479,44032479
 Servicing_USOGetUpdateManagerFix_44032465,44032465
 Servicing_RdpAvenc,44031547
+W32PTU,44030954
 Servicing_NullPointerFix_44029684,44029684
 Servicing_WufbWSUSFiltering_44029373,44029373
 Servicing_WufbWSUSFiltering_44029363,44029363
@@ -1310,6 +1337,7 @@ Servicing_CredUICrash,43712503
 Servicing_CGReportingAndDisablementFix,43710477
 Servicing_SystemLogonSessionCheck,43710382
 MSRC77972_43709944,43709944
+DisablePostLogonProvisioningMdm,43703455
 RDXLP,43702253
 Servicing_ElevatedSchTaskCredManFix,43701847
 Servicing_TaskManagerTabNavigationStuckOnFilterWrapper,43701566
@@ -1338,6 +1366,7 @@ ChildHwndForIslandInputSite,43667795
 TaskbarSearchStartupInfoTelemetry,43666735
 WUSupportsExtendedAttributes2,43666139
 MSRC78070_43665376,43665376
+Servicing_FERibbonCleanupCrash,43661470
 Servicing_ADSD_AadTrust,43660019
 MSRC74191_43659857,43659857
 Servicing_USOScanBeforeInitialLogon_43653942,43653942
@@ -1533,7 +1562,7 @@ Servicing_whfBPIN_credsspFix,43228027
 Containment_UUS_Catch_43222144,43222144
 Servicing_RPCSSProseqRaceCondition,43218514
 SuppressFeaturedApps,43217950
-DefenderPerformanceModeUX,43217407
+DefenderPerfModeUX,43217407
 IMRespectWTDToggle,43216666
 MSRC77371_43216458,43216458
 MSRC77369_43215793,43215793
@@ -1722,7 +1751,7 @@ FallbackOnUndockedTaskbarLoadFailure,42875584
 ModalExperienceManagerRestoreDialogOptions,42875569
 Servicing_DeletingCorruptFileFix,42868376
 Servicing_ResetRecommendedAppFix,42868018
-NarratorCheckBoxAsListItemIssue,42867208
+NarratorNavigationGettingStuck,42867208
 HumanPresenceMakeBackwardCompatibleToSV2,42867161
 Moment_SettingsDisksAndVolumesCreateDevVolume,42866187
 StaticCuratedRanker,42866086
@@ -1838,6 +1867,7 @@ RunInPlaceUpgrade,42550315
 MSRC76370_42547317,42547317
 Servicing_MTPOverStorageFoldersFix,42547042
 QueryDXLuidFromDevProxy,42542174
+DisableWin10Taskbar,42537950
 MSRC76344_42533523,42533523
 Servicing_ScanSLAFix_42533466,42533466
 SuggestedMaxAgeForRecentlyInstalledApps,42533246
@@ -1870,7 +1900,7 @@ DLAApis,42501175
 SnapFlyoutAndBarSuggestions,42500395
 Servicing_DisableFuncOnARMMachines_42494084,42494084
 Servicing_FileExplorerScaffoldingWindowFix,42492233
-InputAppActivationStabilization2023,42490626
+DontActivateWhileActivatingInputApp,42490626
 MSRC76256_42480175,42480175
 SettingsTelemetry_FilterSpuriousSettingUsed,42480140
 Servicing_SlowSMBCopy_42474892,42474892
@@ -2236,6 +2266,7 @@ FCLFeatureD,41676043
 FCLFeatureC,41676036
 FCLFeatureB,41676029
 Servicing_DisableEffectPackSigningCheck,41673831
+ReFS_Rollback_Protection,41672490
 IncreaseSpatialAudioDynamicObjectCountV1,41671148
 Servicing_AvoidWamNonExplorerProcess,41670529
 AdminFlowRejuv_UninstallOS,41670003
@@ -2332,6 +2363,7 @@ WnfSubscriptionDeadlockFix,41463981
 Servicing_ElevationOfPrivilege_Code_Integrity_TOCTOU_41459387,41459387
 MSRC74576_41457694,41457694
 UsePPEServer,41457095
+EnableAppPrioritization,41456515
 Servicing_USBPrint_SetInterfaceDelay,41454802
 Servicing_41454144,41454144
 WcaCloaked_UserMode,41452956
@@ -2997,7 +3029,6 @@ RestoreStartPinnedLayout,39892922
 Servicing_SerCx2_HiResTimerEnablement_39892802,39892802
 Servicing_SettingsPageColorProfilePicker,39889267
 Servicing_UseLockingClassInDisplaySettingsHandler,39889034
-Temporary39889034,39889034
 MSRC72399_39888802,39888802
 MSRC72397_39888334,39888334
 MSRC72396_39887784,39887784
@@ -4452,6 +4483,7 @@ MSRC66647_35057935,35057935
 RecycleLinkAndSustainablePowerAlerts,35056325
 Servicing_HaileyOEMPolicyRemoval_35054742,35054742
 BugFixForSV2CraftAndTheme,35046510
+OsConfigurationPowerShell,35038115
 MSRC66619_35038104,35038104
 OsConfigurationParseJSONToDCDoc,35038075
 CloudProviderStatusUI,35032947
@@ -6071,13 +6103,11 @@ NoBatteryE3,27967028
 WSL_UseInsidersKernelVersion,27952468
 20H2Candidate_27952179,27952179
 DragImprovementsEnabled,27924095
-DITest,27924095
 SAFlyoutFe,27924070
 MszAdjustment,27924028
 MWTest,27923976
 SASTest,27923942
 SnapBasedTaskGroups,27923870
-SgUpdate,27923870
 VwUpdates,27923788
 VpmUpdates,27923675
 RvUpdates,27923582
@@ -7336,7 +7366,6 @@ MSRC54691_23916397,23916397
 MSRC54698_23916256,23916256
 FridgeMagnetsPPI,23902811
 WcosHardwareCursor,23897624
-WcosSingleVisualCursor,23897624
 MSRC53501_23896796,23896796
 MSRC53822_23896795,23896795
 MSRC53746_23896794,23896794
@@ -10061,7 +10090,7 @@ EyeTracking,11030047
 Dwm_Ownership_Leak_Bugchek,11029914
 WindowsSpotlightV3,11024039
 TimelineUpSell,11019025
-ExperimentalAGM,11015710
+AutoGameMode,11015710
 SvchostMitigationPolicies,11013506
 HcsGpuRequireDevice,10999891
 CortanaNotificationPromotion,10998643
@@ -10248,6 +10277,7 @@ FloatingModeDefaultForDuiTic,9226226
 InkHighContrastAdjustment,9224489
 CortanaOnLockOutProcModel,9223629
 DesktopSwitcherDataModel,9215578
+ExitProcessDiagnostics,9211919
 ActivitiesInTaskView,9207521
 ExperimentalKGL,9206638
 BrowserAppsForWebsites,9206354
