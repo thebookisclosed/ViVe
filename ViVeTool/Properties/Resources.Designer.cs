@@ -80,7 +80,7 @@ namespace Albacore.ViVeTool.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ViVeTool v0.3.3 - Windows feature configuration tool
+        ///   Looks up a localized string similar to ViVeTool v0.3.4 - Windows feature configuration tool
         ///.
         /// </summary>
         internal static string Branding {
@@ -348,14 +348,14 @@ namespace Albacore.ViVeTool.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Syntax:
         ///  /fullreset [/store:&lt;both | runtime | boot&gt;]
-        ///  [/priority:{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}]
+        ///  [/priority:{{&lt;safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;2-14&gt;}}]
         ///
         ///This command removes all custom feature configuration overrides, effectively reverting
         ///feature store contents to their clean install state. Both stores are targeted by default.
         ///If a priority is specified, only features in that specific priority will be reset.
         ///Use with caution.
         ///
-        ///ImageDefault (0), Security (9) and ImageOverride (15) priority configurations a [rest of string was truncated]&quot;;.
+        ///{0}.
         /// </summary>
         internal static string Help_FullReset {
             get {
@@ -371,8 +371,7 @@ namespace Albacore.ViVeTool.Properties {
         ///
         ///Specifying /replace performs a full reset before importing data.
         ///
-        ///ImageDefault (0), Security (9) and ImageOverride (15) priority configurations are
-        ///unaffected by this command.
+        ///{0}
         ///
         ///Examples:
         ///  /import /filename:features.bin
@@ -427,12 +426,13 @@ namespace Albacore.ViVeTool.Properties {
         ///   Looks up a localized string similar to Syntax:
         ///  /query [/store:&lt;runtime | boot&gt;] [/id:&lt;comma delimited feature IDs&gt;]
         ///  [/name:&lt;comma delimited feature names&gt;]
-        ///  [/priority:{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}]
+        ///  [/priority:{&lt;imagedefault | ekb | safeguard | imagedefaulteditionoverride |
+        ///    service | dynamic | user | security | userpolicy | test | imageoverride&gt; | &lt;0-15&gt;}]
         ///
         ///If no store is specified, the Runtime store will be queried by default.
         ///You can specify feature IDs or names to filter the query results, in this case only
         ///the override with the highest priority will be displayed.
-        ///If a priority is specified, only features in that specific priority will be sh [rest of string was truncated]&quot;;.
+        ///I [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Help_Query {
             get {
@@ -442,8 +442,8 @@ namespace Albacore.ViVeTool.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to Syntax:
-        ///  /reset {/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}
-        ///  [/priority:{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}]
+        ///  /reset {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}}
+        ///  [/priority:{{&lt;safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;2-14&gt;}}]
         ///  [/store:&lt;both | runtime | boot&gt;]
         ///
         ///Features can be specified using both their IDs and names, mixing and matching is allowed.
@@ -451,7 +451,9 @@ namespace Albacore.ViVeTool.Properties {
         ///By default the features you&apos;ve chosen will have their configuration overrides erased from
         ///all priorities and both stores. Specifying a priority will limit the scope of the reset.
         ///
-        ///ImageDefault [rest of string was truncated]&quot;;.
+        ///{0}
+        ///
+        ///Example [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Help_Reset {
             get {
@@ -463,13 +465,14 @@ namespace Albacore.ViVeTool.Properties {
         ///   Looks up a localized string similar to Syntax:
         ///  {0} {{/id:&lt;comma delimited feature IDs&gt; | /name:&lt;comma delimited feature names&gt;}} [/variant:&lt;0-63&gt;]
         ///  [/variantpayloadkind:&lt;none | resident | external&gt;] [/variantpayload:&lt;0-4294967295&gt;] [/experiment]
-        ///  [/priority:{{&lt;ekb | safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;1-14&gt;}}]
+        ///  [/priority:{{&lt;safeguard | service | dynamic | user | userpolicy | test&gt; | &lt;2-14&gt;}}]
         ///  [/store:&lt;both | runtime | boot&gt;]
         ///
         ///The parameters in square brackets don&apos;t need to be specified and will use these defaults:
         ///  Variant           : 0
         ///  VariantPayloadKind: None
-        ///  VariantPayload    : 0        /// [rest of string was truncated]&quot;;.
+        ///  VariantPayload    : 0
+        ///  Exp [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Help_Set {
             get {
@@ -511,6 +514,16 @@ namespace Albacore.ViVeTool.Properties {
         internal static string Help_SetSubs_Delete {
             get {
                 return ResourceManager.GetString("Help_SetSubs_Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ImageDefault (0), EKB (1), ImageDefaultEditionOverride(3), Security (9), and
+        ///ImageOverride (15) priorities are immutable and can&apos;t be written to..
+        /// </summary>
+        internal static string ImmutablePropertiesInfo {
+            get {
+                return ResourceManager.GetString("ImmutablePropertiesInfo", resourceCulture);
             }
         }
         

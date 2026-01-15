@@ -1,6 +1,6 @@
 ﻿/*
     ViVeTool - Windows feature configuration tool
-    Copyright (C) 2019-2023  @thebookisclosed
+    Copyright (C) 2019-2025  @thebookisclosed
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -264,7 +264,7 @@ namespace Albacore.ViVeTool
         {
             if (ArgumentBlock.HelpMode)
             {
-                Console.WriteLine(Properties.Resources.Help_Reset);
+                Console.WriteLine(Properties.Resources.Help_Reset, Properties.Resources.ImmutablePropertiesInfo);
                 return;
             }
 
@@ -300,7 +300,7 @@ namespace Albacore.ViVeTool
         {
             if (ArgumentBlock.HelpMode)
             {
-                Console.WriteLine(Properties.Resources.Help_FullReset);
+                Console.WriteLine(Properties.Resources.Help_FullReset, Properties.Resources.ImmutablePropertiesInfo);
                 return;
             }
 
@@ -488,7 +488,7 @@ namespace Albacore.ViVeTool
         {
             if (ArgumentBlock.HelpMode)
             {
-                Console.WriteLine(Properties.Resources.Help_Import);
+                Console.WriteLine(Properties.Resources.Help_Import, Properties.Resources.ImmutablePropertiesInfo);
                 return;
             }
 
@@ -609,9 +609,7 @@ namespace Albacore.ViVeTool
             var priorityClamp = ArgumentBlock.FeatureConfigurationProperties?.Priority;
             foreach (var cfg in configs)
             {
-                if (cfg.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.ImageDefault ||
-                    cfg.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.ImageOverride ||
-                    cfg.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.Security ||
+                if (FeatureManager.ImmutablePriorities.Contains(cfg.Priority) ||
                     (priorityClamp.HasValue && cfg.Priority != priorityClamp.Value))
                     continue;
                 if (fullReset || ArgumentBlock.IdList.Contains(cfg.FeatureId))
@@ -729,9 +727,7 @@ namespace Albacore.ViVeTool
                     VariantPayload = br.ReadUInt32()
                 };
                 // Ignore these as they can't be written to the Runtime store and should be purely CBS managed
-                if (config.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.ImageDefault ||
-                    config.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.ImageOverride ||
-                    config.Priority == RTL_FEATURE_CONFIGURATION_PRIORITY.Security)
+                if (FeatureManager.ImmutablePriorities.Contains(config.Priority))
                     continue;
                 configurations.Add(config);
             }
