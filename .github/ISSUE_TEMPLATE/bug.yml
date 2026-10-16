@@ -5,7 +5,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for taking your time to file a bug report!  
+        Thank you for taking the time to file a bug report!  
         Before filling out the form, please give the report a brief title. e.g. _Unhandled exception when using /export_
         
         In case you've followed a tutorial for toggling features and didn't get the desired result, this is most likely **NOT a bug.**
